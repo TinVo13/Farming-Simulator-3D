@@ -44,10 +44,17 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private List<Collider> m_collisions = new List<Collider>();
 
+    PlayerInteraction playerInteraction;
+
     private void Awake()
     {
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
+    }
+
+    void Start()
+    {
+        playerInteraction = GetComponentInChildren<PlayerInteraction>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -107,9 +114,24 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private void Update()
     {
+        Interact();
+
         if (!m_jumpInput && Input.GetKey(KeyCode.Space))
         {
             m_jumpInput = true;
+        }
+
+        if (Input.GetKey(KeyCode.RightBracket))
+        {
+            TimeManager.Instance.Tick();
+        }
+    }
+
+    public void Interact()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            playerInteraction.Interact();
         }
     }
 
