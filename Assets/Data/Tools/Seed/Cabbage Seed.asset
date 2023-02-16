@@ -15,5 +15,6 @@ MonoBehaviour:
   description: This is  Seeds
   thumbnail: {fileID: -1608940185, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
   gameModel: {fileID: 0}
-  daysToGrow: 3
-  crowToYield: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
+  daysToGrow: 1
+  cropToYield: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
+  seedling: {fileID: 1000013081511698, guid: 20a97bb13c3ef18478cf9c86535b1e9b, type: 3}

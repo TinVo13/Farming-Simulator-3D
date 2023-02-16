@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WateringCan
   m_EditorClassIdentifier: 
   description: This is Watering Can. Important for every fruit
-  thumbnail: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  thumbnail: {fileID: 21300000, guid: bc4bca35e0995d744a5575e7f8297b49, type: 3}
   gameModel: {fileID: 0}
   toolType: 2

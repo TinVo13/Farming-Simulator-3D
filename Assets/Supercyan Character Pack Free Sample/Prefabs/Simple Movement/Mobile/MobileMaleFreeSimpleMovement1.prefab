@@ -287,6 +287,7 @@ Transform:
   - {fileID: 4817144325807376}
   - {fileID: 4537045696469842}
   - {fileID: 4889583123494968}
+  - {fileID: 6455572968782680871}
   m_Father: {fileID: 4138575711422790}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1341,7 +1342,7 @@ GameObject:
   - component: {fileID: 136943970358897604}
   - component: {fileID: 95541723052833158}
   - component: {fileID: 1221030649215221295}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MobileMaleFreeSimpleMovement1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,3 +1500,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc62122191170148be8a0e723d18d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5859734565954317400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6455572968782680871}
+  m_Layer: 0
+  m_Name: Hand Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6455572968782680871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5859734565954317400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4063540717091648}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -7,5 +7,8 @@ public class SeedData : ItemData
 {
     public int daysToGrow;
 
-    public ItemData crowToYield;
+    public ItemData cropToYield;
+
+    //The seedling GameObject;
+    public GameObject seedling;
 }

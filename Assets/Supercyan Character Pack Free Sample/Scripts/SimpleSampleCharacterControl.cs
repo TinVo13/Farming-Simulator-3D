@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
@@ -121,6 +122,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             m_jumpInput = true;
         }
 
+        //Skip time when the right square bracket is pressed
         if (Input.GetKey(KeyCode.RightBracket))
         {
             TimeManager.Instance.Tick();
@@ -129,10 +131,17 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     public void Interact()
     {
-        if (Input.GetButtonDown("Fire1"))
+        //Tool interaction
+        if (Input.GetButtonDown("Fire1") || Input.touchCount > 0)
         {
             playerInteraction.Interact();
         }
+
+        //Item interaction
+        if (Input.GetButtonDown("Fire2"))
+        {
+            playerInteraction.ItemInteract();
+        } 
     }
 
     private void FixedUpdate()
