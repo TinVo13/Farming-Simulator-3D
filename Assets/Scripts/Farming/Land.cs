@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Land : MonoBehaviour, ITimeTracker
 {
@@ -11,8 +12,6 @@ public class Land : MonoBehaviour, ITimeTracker
     }
 
     public LandStatus landStatus;
-
-
 
     public Material soilMat, farmlandMat, wateredMat;
 
@@ -31,9 +30,14 @@ public class Land : MonoBehaviour, ITimeTracker
     //The crop currently planted on the land
     CropBehaviour cropPlanted = null;
 
+    PlayerInteraction playerInteraction = null;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
+
         renderer = GetComponent<Renderer>();
 
         SwitchLandStatus(LandStatus.Soil);
@@ -76,17 +80,17 @@ public class Land : MonoBehaviour, ITimeTracker
 
     public void Select(bool toogle)
     {
-        select.SetActive(toogle);  
+        select.SetActive(toogle);
     }
 
     //when the player press the interact button while selecting this land
     public void Interact()
     {
         //Check the player's tool slot
-        ItemData toolSlot = InventoryManager.Instance.equippedTool;
+        ItemData toolSlot = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Tool);
 
         //if there's nothing equipped, return
-        if (toolSlot == null)
+        if (!InventoryManager.Instance.SlotEquipped(InventorySlot.InventoryType.Tool)) 
         {
             return;
         }
@@ -109,6 +113,13 @@ public class Land : MonoBehaviour, ITimeTracker
                 case EquipmentData.ToolType.WateringCan:
                     SwitchLandStatus(LandStatus.Watered);
                     break;
+                case EquipmentData.ToolType.Shovel:
+                    //Remove the crop from the land
+                    if(cropPlanted != null)
+                    {
+                        Destroy(cropPlanted.gameObject);
+                    }
+                    break;
             }
 
             //we don't need to check for seeds if we have already confirmed the tool to be an equipment
@@ -118,6 +129,7 @@ public class Land : MonoBehaviour, ITimeTracker
 
         //Try casting the itemdata in the toolslot as SeedData
         SeedData seedTool = toolSlot as SeedData;
+        EquipmentData equipmentData = toolSlot as EquipmentData;
 
         ///Conditions for the player to be able to plant a seed
         ///1: He is holding a tool of type SeedData
@@ -134,24 +146,44 @@ public class Land : MonoBehaviour, ITimeTracker
             cropPlanted = cropObject.GetComponent<CropBehaviour>();
             //Plant it with the seed's inform
             cropPlanted.Plant(seedTool);
+
+            //Comsume the item
+            InventoryManager.Instance.ConsumeItem(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
         }
     }
 
     public void ClockUpdate(GameTimestamp timestamp)
     {
+        //Checked if 1 hours has passed since last watered
         if (landStatus == LandStatus.Watered)
         {
+            //Hours since the land was watered 
             int hoursElapsed = GameTimestamp.CompareTimestamps(timeWatered, timestamp);
-            Debug.Log(hoursElapsed + " houra since this was watered");
+            Debug.Log(hoursElapsed + " hour a since this was watered");
 
+            //Grow the planted crop, if any
             if (cropPlanted != null)
             {
                 cropPlanted.Grow();
             }
 
-            if(hoursElapsed > 24)
+            /*if(hoursElapsed > 24)
             {
                 SwitchLandStatus(LandStatus.Farmland);
+            }*/
+            if (hoursElapsed > 1)
+            {
+                //Dry up (Switch back to farmland)
+                SwitchLandStatus(LandStatus.Farmland);
+                
+            }
+        }
+        //Handle the wilting of the plant when land is not watered
+        if (landStatus != LandStatus.Watered && cropPlanted != null)
+        {
+            if (cropPlanted.cropState != CropBehaviour.CropState.Seed)
+            {
+                cropPlanted.Wilther();
             }
         }
     }

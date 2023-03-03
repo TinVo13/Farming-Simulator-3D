@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Status Bar")]
     public Image toolEquipSlot;
 
+    //Tool Quantity text on the status bar
+    public Text toolQuantityText;
+
     public Text timeText;
     public Text dateText;
 
@@ -49,6 +52,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
         TimeManager.Instance.RegisterTracker(this);
     }
 
+    //Iterate through the slot UI elements and assign it is reference slot index
     public void AssignIndexes()
     {
         for (int i = 0; i < toolSlots.Length; i++)
@@ -61,33 +65,43 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public void RenderInventory()
     {
-        ItemData[] inventoryToolSlots = InventoryManager.Instance.tools;
+        //Get the respective slots to process
+        ItemSlotData[] inventoryToolSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Tool);
+        ItemSlotData[] inventoryItemSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Item);
 
-        ItemData[] inventoryItemSlots = InventoryManager.Instance.items;
-
-        ItemData equippedTool = InventoryManager.Instance.equippedTool;
-
-        /*ItemData[] inventoryEquipItemSlots = InventoryManager.Instance.equippedItem;*/
 
         RenderInventoryPanel(inventoryToolSlots, toolSlots);
 
         RenderInventoryPanel(inventoryItemSlots, itemSlots);
 
-        toolHandSlot.Display(InventoryManager.Instance.equippedTool);
-        itemHandSlot.Display(InventoryManager.Instance.equippedItem);
+        toolHandSlot.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
+        itemHandSlot.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item));
 
-        /*RenderInventoryPanel(inventoryEquipToolSlots, )*/
+        ItemData equippedTool = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Tool);
+
+        //Text should be empty by deafault
+        toolQuantityText.text = "";
+
         if (equippedTool != null)
         {
+            //Switch the thumbnail over
             toolEquipSlot.sprite = equippedTool.thumbnail;
+
             toolEquipSlot.gameObject.SetActive(true);
+
+            //Get quantity
+            int quantity = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool).quantity;
+            if (quantity > 1)
+            {
+                toolQuantityText.text = quantity.ToString();
+            }
 
             return;
         }
         toolEquipSlot.gameObject.SetActive(false);
     }
 
-    public void RenderInventoryPanel(ItemData[] slots, InventorySlot[] uiSlots)
+    public void RenderInventoryPanel(ItemSlotData[] slots, InventorySlot[] uiSlots)
     {
         for (int i = 0; i < uiSlots.Length; i++)
         {
@@ -96,6 +110,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     }
     public void ToogleInventoryPanel()
     {
+        //If the panel is hidden, show it and vice versa
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
 
         RenderInventory();

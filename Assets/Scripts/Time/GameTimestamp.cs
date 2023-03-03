@@ -89,7 +89,12 @@ public class GameTimestamp
         int dayIndex = dayPassed % 7;
 
         return (DayOfTheWeek)dayIndex;
-    } 
+    }
+
+    public static int MinutesToSeconds(int minute)
+    {
+        return minute * 60;
+    }
 
     public static int HoursToMinutes(int hour)
     {

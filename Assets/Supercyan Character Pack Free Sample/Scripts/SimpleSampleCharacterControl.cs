@@ -47,6 +47,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     PlayerInteraction playerInteraction;
 
+    private int clickCounter;
+
     private void Awake()
     {
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
@@ -56,6 +58,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     void Start()
     {
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
+        clickCounter = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -116,6 +119,10 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private void Update()
     {
         Interact();
+        if(Input.GetMouseButtonDown(0))
+        {
+            clickCounter = 2;
+        }
 
         if (!m_jumpInput && Input.GetKey(KeyCode.Space))
         {

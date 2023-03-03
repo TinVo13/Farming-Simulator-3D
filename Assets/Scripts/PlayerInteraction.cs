@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -9,14 +10,13 @@ public class PlayerInteraction : MonoBehaviour
 
     Land selectLand = null;
 
+    //The crop currently planted on the land
+    CropBehaviour cropPlanted = null;
+
     //The interactable object the player is currently selecting
     InteractableObject selectedInteractable = null;
 
- /*   //Checked when hover land in state harvestable
-    CropBehaviour cropBehaviour = null;
-
-    //Add GameObjet checked harvestable
-    public GameObject btnHarvestable;*/
+    public GameObject btnHarvestable;
 
     // Start is called before the first frame update
     void Start()
@@ -37,46 +37,43 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnInteractableHit(RaycastHit hit)
     {
-               Collider other = hit.collider;
+        Collider other = hit.collider;
 
-               //Check if the player is going to interact with land
-               if(other.tag == "Land")
-               {
-                    //Get the land component
-                    Land land = other.GetComponent<Land>();
-                    SelectLand(land);
-                   /* if(CropBehaviour.growth >= CropBehaviour.maxGrowth && CropBehaviour.cropState == CropBehaviour.CropState.Harvestable)
-                    {
-                        btnHarvestable.SetActive(true);
-                    }*/
-                    return;
-               }
+        //Check if the player is going to interact with land
+        if (other.tag == "Land")
+        {
+            //Get the land component
+            Land land = other.GetComponent<Land>();
+            SelectLand(land);
+            btnHarvestable.SetActive(true);
+            return;
+        }
 
-               //Check if player is going to interact with an item
-               if(other.tag == "Item") 
-               {
-                    selectedInteractable = other.GetComponent<InteractableObject>();
-                    return;
-               }
+        //Check if player is going to interact with an item
+        if (other.tag == "Item")
+        {
+            selectedInteractable = other.GetComponent<InteractableObject>();
+            return;
+        }
 
-                //Deselect the Interactable if the player is not standing on anything at the moment
-                if(selectedInteractable != null)
-                {
-                    selectedInteractable = null;
-                }
+        //Deselect the Interactable if the player is not standing on anything at the moment
+        if (selectedInteractable != null)
+        {
+            selectedInteractable = null;
+        }
 
 
-               //Deselect the land if the player is not standing on any land at the moment
-               if (selectLand != null) 
-               {
-                    selectLand.Select(false);
-                    selectLand = null;
-                   /* btnHarvestable.SetActive(false);*/
-               }
+        //Deselect the land if the player is not standing on any land at the moment
+        if (selectLand != null)
+        {
+            selectLand.Select(false);
+            btnHarvestable.SetActive(false);
+            selectLand = null;
+        }
 
 
     }
-    
+
     //Handles the selection process of the land
     void SelectLand(Land land)
     {
@@ -86,15 +83,15 @@ public class PlayerInteraction : MonoBehaviour
             selectLand.Select(false);
         }
 
-
         selectLand = land;
+
         land.Select(true);
     }
 
     public void Interact()
     {
         //The player shouldn't be able to use his tool when he has his hands full with an item
-        if(InventoryManager.Instance.equippedItem != null)
+        if(InventoryManager.Instance.SlotEquipped(InventorySlot.InventoryType.Item))
         {
             return;
         }
@@ -102,7 +99,7 @@ public class PlayerInteraction : MonoBehaviour
         //Check if the player is selecting any land
         if (selectLand != null)
         {
-            selectLand.Interact();  
+            selectLand.Interact();
             return;
         }
     }
@@ -111,7 +108,7 @@ public class PlayerInteraction : MonoBehaviour
     public void ItemInteract()
     {
         //if the player is holding something, keep it in his inventory
-        if(InventoryManager.Instance.equippedItem != null)
+        if(InventoryManager.Instance.SlotEquipped(InventorySlot.InventoryType.Item))
         {
             InventoryManager.Instance.HandToInventory(InventorySlot.InventoryType.Item);
             return;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CropBehaviour : MonoBehaviour
@@ -7,18 +8,32 @@ public class CropBehaviour : MonoBehaviour
     //Infomation on what the crop will grow into
     SeedData seedToGrow;
 
+    PlayerInteraction playerInteraction;
+
     [Header("Stages of life")]
     public GameObject seed;
+    public GameObject wilted;
     private GameObject seedling;
     private GameObject harvestable;
+
+    public void Start()
+    {
+        playerInteraction = GetComponent<PlayerInteraction>();
+    }
 
     //The growth points of the crop
     int growth;
     //How many growth points it takes before it becomes harvestable 
     int maxGrowth;
+
+    int health;
+    //The crop can stay alive for 48 hours without water before it dies
+    int maxHealth = GameTimestamp.HoursToMinutes(2);
+
+
     public enum CropState
     {
-        Seed, Seedling, Harvestable
+        Seed, Seedling, Harvestable, Wilted
     }
 
     //The current stage in the crop's growth
@@ -41,12 +56,28 @@ public class CropBehaviour : MonoBehaviour
         harvestable = Instantiate(cropToYield.gameModel, transform);
 
         //Convert Days To Grow into hours 
-        int hoursToGrow = GameTimestamp.DaysToHours(seedToGrow.daysToGrow);
+        /* int hoursToGrow = GameTimestamp.DaysToHours(seedToGrow.daysToGrow);*/
+        /*maxGrowth = GameTimestamp.HoursToMinutes(hoursToGrow);*/
+        int minutesToGrow = GameTimestamp.HoursToMinutes(seedToGrow.hoursToGrow);
         //Convert it to minutes
-        maxGrowth = GameTimestamp.DaysToHours(hoursToGrow);
+
+
+        maxGrowth = minutesToGrow;
+
+        //Check if it is regrowable
+        if (seedToGrow.regrowable)
+        {
+            //Get the RegrowableHarvestBehaviour from the GameObject
+            RegrowableHarvestBehaviour regrowableHarvest = harvestable.GetComponent<RegrowableHarvestBehaviour>();
+
+            //Initialise the harvestable
+            regrowableHarvest.SetParrent(this);
+        }
 
         //Set the initial state to seed
         SwitchState(CropState.Seed);
+
+      
     }
 
     //The crop will grow when watered
@@ -54,6 +85,12 @@ public class CropBehaviour : MonoBehaviour
     {
         //Increase the growth point by 1
         growth++;
+
+        //Restore the health of the plant when it is watered
+        if(health < maxHealth)
+        {
+            health++;
+        }
 
         //The sees will sprout into a seeding when the growth is at 1/2
         if (growth >= maxGrowth / 2 && cropState == CropState.Seed)
@@ -68,6 +105,18 @@ public class CropBehaviour : MonoBehaviour
         }
     }
 
+    //The crop will progress wither when the soil is dry
+    public void Wilther()
+    {
+        health--;
+
+        //If the health is below 0 and the crop has germinated, kill it
+        if(health <= 0 && cropState != CropState.Seed)
+        {
+            SwitchState(CropState.Wilted);
+        }
+    }
+
     //Function to handle the state changes
     void SwitchState(CropState stateToSwitch)
     {
@@ -75,6 +124,7 @@ public class CropBehaviour : MonoBehaviour
         seed.SetActive(false);
         seedling.SetActive(false);
         harvestable.SetActive(false);
+        wilted.SetActive(false);
 
         switch (stateToSwitch)
         {
@@ -85,19 +135,43 @@ public class CropBehaviour : MonoBehaviour
             case CropState.Seedling:
                 //Enable the Seedling GameObject
                 seedling.SetActive(true);
+
+                health = maxHealth;
                 break;
             case CropState.Harvestable:
                 //Enable the Harvestable GameObject
                 harvestable.SetActive(true);
-                //Unparent it to the crop
-                harvestable.transform.parent = null;
 
-                Destroy(gameObject);
+                //If the seed is not regrowable, detach the harvestable from this crop gameobject and destroy it.
+                if (!seedToGrow.regrowable)
+                {
+                    //Unparent it to the crop
+                    harvestable.transform.parent = null;
+                    Destroy(gameObject);
+                }
+
+                break;
+            case CropState.Wilted:
+                wilted.SetActive(true);
                 break;
         }
 
         //Set the current crop state to the state we're switching to 
         cropState = stateToSwitch;
 
+    }
+
+    //Called when the player harvests a regrowable crop. Resets the state to seeding
+    public void Regrow()
+    {
+        //Reset the growth
+        //Get the regrowth time in minutes
+        int minutesToRegrow = GameTimestamp.HoursToMinutes(seedToGrow.hoursToRegrow);
+        growth = maxGrowth - minutesToRegrow;
+        /*int hoursToRegrow = GameTimestamp.DaysToHours(seedToGrow.daysToRegrow);*/
+        /*growth = maxGrowth - GameTimestamp.HoursToMinutes(hoursToRegrow);*/
+
+        //Switch the state back to seeding
+        SwitchState(CropState.Seedling);
     }
 }
