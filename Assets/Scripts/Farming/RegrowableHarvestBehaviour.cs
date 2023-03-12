@@ -21,6 +21,7 @@ public class RegrowableHarvestBehaviour : InteractableObject
         InventoryManager.Instance.RenderHand();
 
         //Set the parrent  crop back to seeding to regrow it
-        parrentCrop.Regrow();
+        /*parrentCrop.Regrow();*/
+        Destroy(gameObject);
     }
 }

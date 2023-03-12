@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -65,7 +66,6 @@ public class InventoryManager : MonoBehaviour
 
             //Add to the hand slot 
             handToEquip.AddQuantity(slotToAlter.quantity);
-
             //Empty the inventory slot
             slotToAlter.Empty();
         } 
@@ -162,7 +162,7 @@ public class InventoryManager : MonoBehaviour
         if (SlotEquipped(InventorySlot.InventoryType.Item))
         {
             //Instantiate the game model on the player's hand and put it on the scene
-            Instantiate(GetEquippedSlotItem(InventorySlot.InventoryType.Item).gameModel, transform);
+            Instantiate(GetEquippedSlotItem(InventorySlot.InventoryType.Item).gameModel, new Vector3(transform.position.x, 22.357f, transform.position.z), quaternion.identity);
         }
 
     }

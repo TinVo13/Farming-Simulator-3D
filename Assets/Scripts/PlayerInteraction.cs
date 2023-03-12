@@ -21,6 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        btnHarvestable.SetActive(false);
         //Get access to our PlayerController component
         simpleSampleCharacterControl = transform.parent.GetComponent<SimpleSampleCharacterControl>();
     }

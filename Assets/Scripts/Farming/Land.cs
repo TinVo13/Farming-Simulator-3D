@@ -37,7 +37,6 @@ public class Land : MonoBehaviour, ITimeTracker
     // Start is called before the first frame update
     void Start()
     {
-
         renderer = GetComponent<Renderer>();
 
         SwitchLandStatus(LandStatus.Soil);
@@ -111,7 +110,10 @@ public class Land : MonoBehaviour, ITimeTracker
                     SwitchLandStatus(LandStatus.Farmland);
                     break;
                 case EquipmentData.ToolType.WateringCan:
-                    SwitchLandStatus(LandStatus.Watered);
+                    if (landStatus != LandStatus.Soil)
+                    {
+                        SwitchLandStatus(LandStatus.Watered);
+                    }
                     break;
                 case EquipmentData.ToolType.Shovel:
                     //Remove the crop from the land
@@ -140,8 +142,8 @@ public class Land : MonoBehaviour, ITimeTracker
             //Instantiate the crop object parented to the land 
             GameObject cropObject = Instantiate(cropPrefab, transform);
             //Move the crop object to the top of the land gameobject 
-            cropObject.transform.position = new Vector3(transform.position.x, 22.357f, transform.position.z);
-
+            /*cropObject.transform.position = new Vector3(transform.position.x, 22.357f, transform.position.z);*/
+            cropObject.transform.position = new Vector3(transform.position.x, -0.11f, transform.position.z);
             //Access the CropBehaviour of the crop we're going to plant
             cropPlanted = cropObject.GetComponent<CropBehaviour>();
             //Plant it with the seed's inform

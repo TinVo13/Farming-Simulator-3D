@@ -30,6 +30,10 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public Text itemNameText;
     public Text itemDescriptionText;
 
+    [Header("Screen Transitions")]
+    public GameObject fadeIn;
+    public GameObject fadeOut;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -51,6 +55,34 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         TimeManager.Instance.RegisterTracker(this);
     }
+
+    #region Fadein Fadeout Transitions
+
+    public void FadeOutScreen()
+    {
+        fadeOut.SetActive(true);
+    }
+
+    public void FadeInScreen()
+    {
+        fadeIn.SetActive(true);
+    }
+
+    public void OnFadeInComplete()
+    {
+        //Disable Fade in Screen when animation is completed
+        fadeIn.SetActive(false);
+    }
+
+    //Reset the fadein fadeout screens to their default positions
+    public void ResetFadeDeafaults()
+    {
+        
+        fadeOut.SetActive(false);
+        fadeIn.SetActive(true);
+    }
+
+    #endregion
 
     //Iterate through the slot UI elements and assign it is reference slot index
     public void AssignIndexes()
