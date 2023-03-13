@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,9 @@ public class SceneTransitionManager : MonoBehaviour
 
     public enum Location { Farm, PlayerHome, Village }
     public Location currentLocation;
+
+    //list of all the place that are to be considered indoor
+   
 
     //The player's transform
     Transform playerPoint;
@@ -39,7 +43,8 @@ public class SceneTransitionManager : MonoBehaviour
         //Find the player's transform
         playerPoint = FindObjectOfType<SimpleSampleCharacterControl>().transform;
     }
-
+    //check if the current location indoor
+    
     //Switch the player to another scene
     public void SwitchLocation(Location locationToSwitch)
     {
