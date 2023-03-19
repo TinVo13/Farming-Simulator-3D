@@ -57,8 +57,8 @@ public class SceneTransitionManager : MonoBehaviour
     IEnumerator ChangeScene(Location locationToSwitch)
     {
         //Disable the player's CharacterController component
-       /* CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();
-        playerCharacter.enabled = false;*/
+        /*CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();*/
+        /*playerCharacter.enabled = false;*/
 
         //Wait for the scene to finish fading out before loading the next scene
         while (!screenFadeOut)

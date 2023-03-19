@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
+        //If there is more than one instance, destroy the extra
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -23,6 +24,9 @@ public class InventoryManager : MonoBehaviour
         }
 
     }
+
+    //The full list of items 
+    public ItemIndex itemIndex;
 
     [Header("Tools")]
     //Tool Slots

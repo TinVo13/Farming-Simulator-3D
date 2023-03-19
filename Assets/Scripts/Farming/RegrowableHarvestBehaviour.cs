@@ -7,7 +7,7 @@ public class RegrowableHarvestBehaviour : InteractableObject
     CropBehaviour parrentCrop;
 
     //Sets the parrent crop
-    public void SetParrent(CropBehaviour parrentCrop)
+    public void SetParent(CropBehaviour parrentCrop)
     {
         this.parrentCrop = parrentCrop;
     }

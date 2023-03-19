@@ -6,6 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class Land : MonoBehaviour, ITimeTracker
 {
+    public int id;
+
     public enum LandStatus  
     {
         Soil, Farmland, Watered
@@ -30,7 +32,7 @@ public class Land : MonoBehaviour, ITimeTracker
     //The crop currently planted on the land
     CropBehaviour cropPlanted = null;
 
-    PlayerInteraction playerInteraction = null;
+
 
     
 
@@ -39,13 +41,46 @@ public class Land : MonoBehaviour, ITimeTracker
     {
         renderer = GetComponent<Renderer>();
 
-        SwitchLandStatus(LandStatus.Soil);
+        /*Material materialToSwitch = soilMat;
+        //Get the renderer to apply the changes
+        renderer.material = materialToSwitch;*/
 
         //Deselect the land by default
         Select(false);
 
         //Add this to TimeManager's Listener list
         TimeManager.Instance.RegisterTracker(this);
+    }
+
+    public void LoadLandData(LandStatus statusToSwitch, GameTimestamp lastWatered)
+    {
+        //Set land status accordingly
+        landStatus = statusToSwitch;
+        timeWatered = lastWatered;
+
+        Material materialToSwitch = soilMat;
+
+        //Decide what material to switch to
+        switch (statusToSwitch)
+        {
+            case LandStatus.Soil:
+                //Switch to the soil material
+                materialToSwitch = soilMat;
+                break;
+            case LandStatus.Farmland:
+                //Switch to farmland material 
+                materialToSwitch = farmlandMat;
+                break;
+
+            case LandStatus.Watered:
+                //Switch to watered material
+                materialToSwitch = wateredMat;
+                break;
+
+        }
+
+        //Get the renderer to apply the changes
+        renderer.material = materialToSwitch;
     }
 
     public void SwitchLandStatus(LandStatus statusToSwitch)
@@ -75,6 +110,9 @@ public class Land : MonoBehaviour, ITimeTracker
 
         //Get the renderer to apply the changes
         renderer.material = materialToSwitch;
+      
+        LandManager.Instance.OnLandStateChange(id, landStatus, timeWatered);
+
     }
 
     public void Select(bool toogle)
@@ -119,7 +157,8 @@ public class Land : MonoBehaviour, ITimeTracker
                     //Remove the crop from the land
                     if(cropPlanted != null)
                     {
-                        Destroy(cropPlanted.gameObject);
+                        /*Destroy(cropPlanted.gameObject);*/
+                        cropPlanted.RemoveCrop();
                     }
                     break;
             }
@@ -139,19 +178,32 @@ public class Land : MonoBehaviour, ITimeTracker
         ///3: There isn't already a crop that has been planted 
         if (seedTool != null && landStatus != LandStatus.Soil && cropPlanted == null)
         {
-            //Instantiate the crop object parented to the land 
-            GameObject cropObject = Instantiate(cropPrefab, transform);
-            //Move the crop object to the top of the land gameobject 
-            /*cropObject.transform.position = new Vector3(transform.position.x, 22.357f, transform.position.z);*/
-            cropObject.transform.position = new Vector3(transform.position.x, -0.11f, transform.position.z);
-            //Access the CropBehaviour of the crop we're going to plant
-            cropPlanted = cropObject.GetComponent<CropBehaviour>();
+            /*  //Instantiate the crop object parented to the land 
+              GameObject cropObject = Instantiate(cropPrefab, transform);
+              //Move the crop object to the top of the land gameobject 
+              *//*cropObject.transform.position = new Vector3(transform.position.x, 22.357f, transform.position.z);*//*
+              cropObject.transform.position = new Vector3(transform.position.x, -0.11f, transform.position.z);
+              //Access the CropBehaviour of the crop we're going to plant
+              cropPlanted = cropObject.GetComponent<CropBehaviour>();*/
+            SpawnCrop();
             //Plant it with the seed's inform
-            cropPlanted.Plant(seedTool);
+            cropPlanted.Plant(id, seedTool);
 
             //Comsume the item
             InventoryManager.Instance.ConsumeItem(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
         }
+    }
+
+    public CropBehaviour SpawnCrop()
+    {
+        //Instantiate the crop object parented to the land
+        GameObject cropObject = Instantiate(cropPrefab, transform);
+        //Move the crop object to the top of the land gameobject
+        cropObject.transform.position = new Vector3(transform.position.x, -0.12f, transform.position.z);
+
+        //Access the CropBehaviour of the crop we're going to plant
+        cropPlanted = cropObject.GetComponent<CropBehaviour>();
+        return cropPlanted;
     }
 
     public void ClockUpdate(GameTimestamp timestamp)
