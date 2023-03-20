@@ -13,7 +13,7 @@ public class SceneTransitionManager : MonoBehaviour
     public Location currentLocation;
 
     //list of all the place that are to be considered indoor
-   
+    static readonly Location[] indoor = { Location.PlayerHome };
 
     //The player's transform
     Transform playerPoint;
@@ -44,7 +44,10 @@ public class SceneTransitionManager : MonoBehaviour
         playerPoint = FindObjectOfType<SimpleSampleCharacterControl>().transform;
     }
     //check if the current location indoor
-    
+    public bool CurrentlyIndoor()
+    {
+        return indoor.Contains(currentLocation);
+    }
     //Switch the player to another scene
     public void SwitchLocation(Location locationToSwitch)
     {

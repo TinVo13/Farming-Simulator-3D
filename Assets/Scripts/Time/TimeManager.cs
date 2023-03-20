@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour
     [Header("Day and Night cycle")]
     public Transform sunTransform;
 
-
+    private float indoorAngle = 40;
     List<ITimeTracker> listeners = new List<ITimeTracker>();
 
     private void Awake()
@@ -64,7 +64,11 @@ public class TimeManager : MonoBehaviour
     void UpdateSunMovement()
     {
         //disable sun and night cycle if indoor
-        
+        if (SceneTransitionManager.Instance.CurrentlyIndoor())
+        {
+            sunTransform.eulerAngles = new Vector3(indoorAngle, 0, 0);
+            return;
+        }
         int timeInMinutes = GameTimestamp.HoursToMinutes(timestamp.hour) + timestamp.minute;
 
         float sunAngle = 0.25f * timeInMinutes - 90;
