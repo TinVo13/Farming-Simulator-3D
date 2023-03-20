@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3936752901989672381}
   - component: {fileID: 3936752901990475165}
   - component: {fileID: 3936752901991442269}
-  - component: {fileID: 6311559672109247369}
   - component: {fileID: 1798257185102004968}
+  - component: {fileID: 7660838255462401316}
   m_Layer: 6
   m_Name: Cabbage 1
   m_TagString: Item
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6311559672109247369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3936752901989513629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bca6ac759582f74d9a984b321d15a01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
 --- !u!64 &1798257185102004968
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -120,3 +107,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: -1
   m_Mesh: {fileID: 4300000, guid: 0f50786d35eebcf44805f9d5fb326c11, type: 3}
+--- !u!114 &7660838255462401316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936752901989513629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bca6ac759582f74d9a984b321d15a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}

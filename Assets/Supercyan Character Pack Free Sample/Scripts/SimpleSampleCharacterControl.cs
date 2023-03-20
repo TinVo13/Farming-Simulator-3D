@@ -144,11 +144,11 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             playerInteraction.Interact();
         }
 
-  /*      //Item interaction
+        //Item interaction
         if (Input.GetButtonDown("Fire2"))
         {
             playerInteraction.ItemInteract();
-        }*/ 
+        }
     }
 
     private void FixedUpdate()

@@ -44,6 +44,7 @@ public class Land : MonoBehaviour, ITimeTracker
         /*Material materialToSwitch = soilMat;
         //Get the renderer to apply the changes
         renderer.material = materialToSwitch;*/
+        SwitchLandStatus(LandStatus.Soil);
 
         //Deselect the land by default
         Select(false);
@@ -170,7 +171,6 @@ public class Land : MonoBehaviour, ITimeTracker
 
         //Try casting the itemdata in the toolslot as SeedData
         SeedData seedTool = toolSlot as SeedData;
-        EquipmentData equipmentData = toolSlot as EquipmentData;
 
         ///Conditions for the player to be able to plant a seed
         ///1: He is holding a tool of type SeedData

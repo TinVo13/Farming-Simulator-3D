@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 951855407373222732}
   - component: {fileID: 951855407373222733}
   - component: {fileID: 2456990230223680052}
-  - component: {fileID: 5656859520047190152}
+  - component: {fileID: -8141914081958517462}
   m_Layer: 6
   m_Name: Tomato Harverstable 1
   m_TagString: Item
@@ -110,7 +110,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300010, guid: b69b26c8b73b8bd49bf243bbe541a2e0, type: 3}
---- !u!114 &5656859520047190152
+--- !u!114 &-8141914081958517462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
