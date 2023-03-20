@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LanguageTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 95786641beb03544ab7ae12595e951de, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18288513024
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120948297728
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179978932224
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281367842816
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1898196537344
+    m_Localized: Choose Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1989204545536
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2072247570432
+    m_Localized: Vietnamese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2157807177728
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6203074973696
+    m_Localized: Harvest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6557166505984
+    m_Localized: Axe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654193340416
+    m_Localized: Hoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6792987054080
+    m_Localized: Pickaxe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7082570190848
+    m_Localized: Tomato Seed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7707068502016
+    m_Localized: Cabbage Seed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8080965537792
+    m_Localized: Tomato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8162649608192
+    m_Localized: Cabbage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8264147570688
+    m_Localized: Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8425875738624
+    m_Localized: Items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10346099412992
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16219467190272
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16339109711872
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

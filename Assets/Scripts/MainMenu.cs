@@ -32,4 +32,8 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void MoveToStartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }

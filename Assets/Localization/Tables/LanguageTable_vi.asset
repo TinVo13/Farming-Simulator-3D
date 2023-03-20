@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LanguageTable_vi
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: vi
+  m_SharedData: {fileID: 11400000, guid: 95786641beb03544ab7ae12595e951de, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18288513024
+    m_Localized: "Tr\xF2 Ch\u01A1i M\u1EDBi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120948297728
+    m_Localized: "Ti\u1EBFp T\u1EE5c"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179978932224
+    m_Localized: "C\xE0i \u0110\u1EB7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281367842816
+    m_Localized: "Tho\xE1t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1898196537344
+    m_Localized: "Ch\u1ECDn ng\xF4n ng\u1EEF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1989204545536
+    m_Localized: "Ti\u1EBFng Anh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2072247570432
+    m_Localized: "Ti\u1EBFng Vi\u1EC7t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2157807177728
+    m_Localized: "Quay L\u1EA1i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6203074973696
+    m_Localized: "Thu Ho\u1EA1ch"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6557166505984
+    m_Localized: "R\xECu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654193340416
+    m_Localized: "Cu\u1ED1c"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6792987054080
+    m_Localized: "Cu\u1ED1c chim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7082570190848
+    m_Localized: "H\u1EA1t gi\u1ED1ng c\xE0 chua"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7707068502016
+    m_Localized: "H\u1EA1t gi\u1ED1ng b\u1EAFp c\u1EA3i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8080965537792
+    m_Localized: "C\xE0 chua"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8162649608192
+    m_Localized: "B\u1EAFp c\u1EA3i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8264147570688
+    m_Localized: "C\xF4ng C\u1EE5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8425875738624
+    m_Localized: "H\xE0ng H\xF3a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10346099412992
+    m_Localized: "Quay l\u1EA1i"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16219467190272
+    m_Localized: "Ti\u1EBFp T\u1EE5c"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16339109711872
+    m_Localized: "Tho\xE1t"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
