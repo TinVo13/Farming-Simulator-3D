@@ -7,6 +7,9 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
 {
     public static GameStateManager Instance { get; private set; }
 
+    //Check if the screen has finished fading out
+    bool screenFadeOut;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -72,4 +75,40 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
         }
     }
 
+    public void Sleep()
+    {
+        //Call a fadeout
+        UIManager.Instance.FadeOutScreen();
+        screenFadeOut = false;
+        StartCoroutine(TransitionTime());
+    }
+
+    IEnumerator TransitionTime()
+    {
+        //Calculate how many ticks we need to advance the time to 6am
+
+        //Get the time stamp of 6am the next day
+        GameTimestamp timestampOfNextDay = TimeManager.Instance.GetGameTimestamp();
+        timestampOfNextDay.day += 1;
+        timestampOfNextDay.hour = 6;
+        timestampOfNextDay.minute = 0;
+        Debug.Log(timestampOfNextDay.day + " " + timestampOfNextDay.hour + ":" + timestampOfNextDay.minute);
+
+        
+        //Wait for the scene to finish fading out before loading the next scene
+        while (!screenFadeOut)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        TimeManager.Instance.SkipTime(timestampOfNextDay);
+        //Reset the boolean
+        screenFadeOut = false;
+        UIManager.Instance.ResetFadeDeafaults();
+    }
+
+    //Call when the screen has faded out
+    public void OnFadeOutComplete()
+    {
+        screenFadeOut = true;
+    }
 }
