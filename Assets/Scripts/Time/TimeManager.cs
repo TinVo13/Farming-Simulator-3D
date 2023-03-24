@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
@@ -37,6 +38,11 @@ public class TimeManager : MonoBehaviour
     {
         timestamp = new GameTimestamp(0, GameTimestamp.Season.Spring, 1, 6, 0);
         StartCoroutine(TimeUpdate());
+    }
+
+    public void LoadTime(GameTimestamp timestamp)
+    {
+        this.timestamp = new GameTimestamp(timestamp);
     }
 
     IEnumerator TimeUpdate()

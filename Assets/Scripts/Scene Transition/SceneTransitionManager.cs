@@ -60,8 +60,8 @@ public class SceneTransitionManager : MonoBehaviour
     IEnumerator ChangeScene(Location locationToSwitch)
     {
         //Disable the player's CharacterController component
-        /*CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();*/
-        /*playerCharacter.enabled = false;*/
+        /*CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();
+        playerCharacter.enabled = false;*/
 
         //Wait for the scene to finish fading out before loading the next scene
         while (!screenFadeOut)
@@ -98,15 +98,18 @@ public class SceneTransitionManager : MonoBehaviour
         Transform startPoint = LocationManager.Instance.GetPlayerStartingPosition(oldLocation);
 
         //Disable the player's CharacterController component
-       /* CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();
-        playerCharacter.enabled = false;*/
+        /* CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();
+         playerCharacter.enabled = false;*/
+        if (startPoint != null && playerPoint != null)
+        {
+            //Change the player's position to the start point
+            playerPoint.position = startPoint.position;
+            playerPoint.rotation = startPoint.rotation;
 
-        //Change the player's position to the start point
-        playerPoint.position = startPoint.position;
-        playerPoint.rotation = startPoint.rotation;
+        }
 
         //Re-enable player character controller so he can move
-       /* playerCharacter.enabled = true;*/
+        /* playerCharacter.enabled = true;*/
 
         //Save the current location we just switched to
         currentLocation = newLocation;

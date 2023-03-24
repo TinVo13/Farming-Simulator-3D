@@ -11,8 +11,6 @@ public class LandManager : MonoBehaviour
 
     List<Land> landPlots = new List<Land>();
 
-    public GameObject[] listLand;
-
     List<LandSaveState> landData = new List<LandSaveState>();
     List<CropSaveState> cropData = new List<CropSaveState>();
 

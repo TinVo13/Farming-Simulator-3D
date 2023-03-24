@@ -218,16 +218,16 @@ public class CropBehaviour : MonoBehaviour
     }
 
     //Called when the player harvests a regrowable crop. Resets the state to seeding
-    public void Regrow()
+/*    public void Regrow()
     {
         //Reset the growth
         //Get the regrowth time in minutes
         int minutesToRegrow = GameTimestamp.HoursToMinutes(seedToGrow.hoursToRegrow);
         growth = maxGrowth - minutesToRegrow;
-/*        int hoursToRegrow = GameTimestamp.DaysToHours(seedToGrow.daysToRegrow);
-        growth = maxGrowth - GameTimestamp.HoursToMinutes(hoursToRegrow);*/
+*//*        int hoursToRegrow = GameTimestamp.DaysToHours(seedToGrow.daysToRegrow);
+        growth = maxGrowth - GameTimestamp.HoursToMinutes(hoursToRegrow);*//*
 
         //Switch the state back to seeding
         SwitchState(CropState.Seedling);
-    }
+    }*/
 }

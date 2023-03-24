@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3936752901990475165}
   - component: {fileID: 3936752901991442269}
   - component: {fileID: 1798257185102004968}
-  - component: {fileID: 7660838255462401316}
+  - component: {fileID: -1427124822495008926}
   m_Layer: 6
   m_Name: Cabbage 1
   m_TagString: Item
@@ -107,7 +107,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: -1
   m_Mesh: {fileID: 4300000, guid: 0f50786d35eebcf44805f9d5fb326c11, type: 3}
---- !u!114 &7660838255462401316
+--- !u!114 &-1427124822495008926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

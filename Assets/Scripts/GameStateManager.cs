@@ -101,6 +101,8 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
             yield return new WaitForSeconds(1f);
         }
         TimeManager.Instance.SkipTime(timestampOfNextDay);
+        //Save game
+        SaveManager.Save(ExportSaveState());
         //Reset the boolean
         screenFadeOut = false;
         UIManager.Instance.ResetFadeDeafaults();
@@ -110,5 +112,39 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
     public void OnFadeOutComplete()
     {
         screenFadeOut = true;
+    }
+
+    public GameSaveState ExportSaveState()
+    {
+        //Retrieve Farm Data
+        List<LandSaveState> landData = LandManager.farmData.Item1;
+        List<CropSaveState> cropData = LandManager.farmData.Item2;
+
+        //Retrieve Inventory Data
+        ItemSlotData[] toolSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Tool);
+        ItemSlotData[] itemSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Item);
+
+        ItemSlotData equippedItemSlot = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item);
+        ItemSlotData equippedToolSlot = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool);
+
+        //Time
+        GameTimestamp timestamp = TimeManager.Instance.GetGameTimestamp();
+        return new GameSaveState(landData, cropData, toolSlots, itemSlots, equippedItemSlot, equippedToolSlot, timestamp);
+    }
+
+    public void LoadSave()
+    {
+        GameSaveState save = SaveManager.Load();
+
+        TimeManager.Instance.LoadTime(save.timestamp);
+
+        ItemSlotData[] toolSlots = ItemSlotData.DeserializeArray(save.toolSlots);
+        ItemSlotData equippedToolSlot = ItemSlotData.DeserializeData(save.equippedToolSlot);
+        ItemSlotData[] itemSlots = ItemSlotData.DeserializeArray(save.itemSlots); 
+        ItemSlotData equippedItemSlot = ItemSlotData.DeserializeData(save.equippedItemSlot);
+        InventoryManager.Instance.LoadInventory(toolSlots, equippedToolSlot, itemSlots, equippedItemSlot);
+
+        //Farming data
+        LandManager.farmData = new System.Tuple<List<LandSaveState>, List<CropSaveState>>(save.landData, save.cropData);
     }
 }
