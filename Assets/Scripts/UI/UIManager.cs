@@ -37,6 +37,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Yes No Prompt")]
     public YesNoPrompt yesNoPrompt;
 
+    [Header("Player Stats")]
+    public Text moneyText;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -55,6 +58,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     {
         RenderInventory();
         AssignIndexes();
+        RenderPlayerStats();
 
         TimeManager.Instance.RegisterTracker(this);
     }
@@ -200,4 +204,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     }
     #endregion
+
+    public void RenderPlayerStats()
+    {
+        moneyText.text = PlayerStats.money + PlayerStats.CURRENCY;
+    }
 }

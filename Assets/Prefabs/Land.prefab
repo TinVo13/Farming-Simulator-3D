@@ -126,6 +126,10 @@ MonoBehaviour:
   wateredMat: {fileID: 2100000, guid: ed8f8330f9726d7429369a7a2364714c, type: 2}
   select: {fileID: 6940160173204239065}
   cropPrefab: {fileID: 7382342278726770163, guid: 903c657e99343bb41a41ad3ad85e29bf, type: 3}
+  obstacleStatus: 0
+  rockPrefab: {fileID: 5322834050328951368, guid: 4f6f8fb351fbc3a42af6f121be6d583d, type: 3}
+  woodPrefab: {fileID: 7693955920524242979, guid: f0cd3e2d16afb8748944c644cf4dd153, type: 3}
+  weedsPrefab: {fileID: 2062259191753225551, guid: 41a6ac77d7cc4e3439d93d1364916b04, type: 3}
 --- !u!1 &6940160173204239065
 GameObject:
   m_ObjectHideFlags: 0

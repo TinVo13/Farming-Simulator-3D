@@ -15,3 +15,4 @@ MonoBehaviour:
   description: This is vegetables.
   thumbnail: {fileID: -1394452818, guid: 463bb72938a883a4db7d6d35c9c92dba, type: 3}
   gameModel: {fileID: 8554979865545778643, guid: 2eb883cf55dab7a4ea4cc1355e347205, type: 3}
+  cost: 0

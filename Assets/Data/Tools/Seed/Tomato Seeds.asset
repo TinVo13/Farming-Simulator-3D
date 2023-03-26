@@ -15,6 +15,7 @@ MonoBehaviour:
   description: Seeds to grow tomatos
   thumbnail: {fileID: -1608940185, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
   gameModel: {fileID: 0}
+  cost: 15000
   hoursToGrow: 4
   cropToYield: {fileID: 11400000, guid: 79c47a35f8e64b44f9794720d8a0f112, type: 2}
   seedling: {fileID: 3641896794726487424, guid: 7a8f69240d307264b885eaeddaf9cb0d, type: 3}

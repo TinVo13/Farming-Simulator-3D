@@ -7,11 +7,13 @@ public struct LandSaveState
 {
     public Land.LandStatus landStatus;
     public GameTimestamp lastWatered;
+    public Land.FarmObstacleStatus obstacleStatus;
 
-    public LandSaveState(Land.LandStatus landStatus, GameTimestamp lastWatered)
+    public LandSaveState(Land.LandStatus landStatus, GameTimestamp lastWatered, Land.FarmObstacleStatus obstacleStatus)
     {
         this.landStatus = landStatus;
         this.lastWatered = lastWatered;
+        this.obstacleStatus = obstacleStatus;
     }
 
     public void ClockUpdate(GameTimestamp timestamp)

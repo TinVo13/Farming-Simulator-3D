@@ -46,7 +46,6 @@ public class PlayerInteraction : MonoBehaviour
             //Get the land component
             Land land = other.GetComponent<Land>();
             SelectLand(land);
-            btnHarvestable.SetActive(true);
             return;
         }
 
@@ -85,7 +84,7 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         selectLand = land;
-
+        btnHarvestable.SetActive(true);
         land.Select(true);
     }
 

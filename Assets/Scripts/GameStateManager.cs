@@ -32,8 +32,23 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
 
     public void ClockUpdate(GameTimestamp timestamp)
     {
+        UpdateShippingState(timestamp);
+        UpdateFarmState(timestamp);
+    }
+
+    void UpdateShippingState(GameTimestamp timestamp)
+    {
+        //Check time if it exactly 18:00 h
+        if(timestamp.hour == ShippingBin.hourToShip && timestamp.minute == 0)
+        {
+            ShippingBin.ShipItems();
+        }
+    }
+
+    void UpdateFarmState(GameTimestamp timestamp)
+    {
         //Update the land and Crop Save states as long as the player is outside of the farm scene
-        if (SceneTransitionManager.Instance.currentLocation != SceneTransitionManager.Location.Farm) 
+        if (SceneTransitionManager.Instance.currentLocation != SceneTransitionManager.Location.Farm)
         {
             if (LandManager.farmData == null) return;
             //Retrieve the land and Farm data from the static variable
@@ -54,10 +69,11 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
                 //Update the Land's state
                 land.ClockUpdate(timestamp);
                 //Update the crop's state based on the land state
-                if(land.landStatus == Land.LandStatus.Watered)
+                if (land.landStatus == Land.LandStatus.Watered)
                 {
                     crop.Grow();
-                } else if(crop.cropState != CropBehaviour.CropState.Seed)
+                }
+                else if (crop.cropState != CropBehaviour.CropState.Seed)
                 {
                     crop.Wilther();
                 }
@@ -68,8 +84,8 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
             }
             LandManager.farmData.Item2.ForEach((CropSaveState crop) =>
             {
-                Debug.Log(crop.seedToGrow + "\n Health: " 
-                    + crop.health + "\n Growth: " + crop.growth + "\n State: " 
+                Debug.Log(crop.seedToGrow + "\n Health: "
+                    + crop.health + "\n Growth: " + crop.growth + "\n State: "
                     + crop.cropState.ToString());
             });
         }
@@ -129,7 +145,7 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
 
         //Time
         GameTimestamp timestamp = TimeManager.Instance.GetGameTimestamp();
-        return new GameSaveState(landData, cropData, toolSlots, itemSlots, equippedItemSlot, equippedToolSlot, timestamp);
+        return new GameSaveState(landData, cropData, toolSlots, itemSlots, equippedItemSlot, equippedToolSlot, timestamp, PlayerStats.money);
     }
 
     public void LoadSave()
@@ -146,5 +162,7 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
 
         //Farming data
         LandManager.farmData = new System.Tuple<List<LandSaveState>, List<CropSaveState>>(save.landData, save.cropData);
+
+        PlayerStats.LoadStats(save.money);
     }
 }
