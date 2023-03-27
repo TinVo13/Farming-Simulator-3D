@@ -8,6 +8,8 @@ TagManager:
   - Land
   - Item
   - HarvestableButton
+  - JoyStick
+  - InventoryButton
   layers:
   - Default
   - TransparentFX

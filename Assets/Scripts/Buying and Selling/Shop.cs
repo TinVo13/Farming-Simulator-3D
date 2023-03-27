@@ -5,6 +5,14 @@ using UnityEngine;
 public class Shop : InteractableObject
 {
     public List<ItemData> shopItems;
+    private GameObject canvasJoyStick;
+    private GameObject inventoryButton;
+
+    private void Start()
+    {
+        canvasJoyStick = GameObject.FindWithTag("JoyStick");
+        inventoryButton = GameObject.FindWithTag("InventoryButton");
+    }
 
     public static void Purchase(ItemData item, int quantity)
     {
@@ -22,8 +30,9 @@ public class Shop : InteractableObject
 
     public override void PickUp()
     {
-        Debug.Log("Purchasing");
-        Purchase(item, 2);
+        UIManager.Instance.OpenShop(shopItems);
+        canvasJoyStick.SetActive(false);
+        inventoryButton.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
