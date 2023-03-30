@@ -45,6 +45,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Shop")]
     public ShopListingManager shopListingManager;
 
+    [Header("Relationships")]
+    public RelationshipListingManager relationshipListingManager;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -220,6 +223,17 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public void OpenShop(List<ItemData> shopItems)
     {
         shopListingManager.gameObject.SetActive(true);
-        shopListingManager.RenderShop(shopItems);
+        shopListingManager.Render(shopItems);
+    }
+
+    public void ToggleRelationshipPanel()
+    {
+        GameObject panel = relationshipListingManager.gameObject;
+        panel.SetActive(!panel.activeSelf);
+
+        if(panel.activeSelf)
+        {
+            relationshipListingManager.Render(RelationshipStats.relationships);
+        }
     }
 }

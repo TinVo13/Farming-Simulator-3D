@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopListingManager : MonoBehaviour
+public class ShopListingManager : ListingManager<ItemData>
 {
-    public GameObject shopListing;
-    public Transform listingGrid;
+
 
     ItemData itemToBuy;
     int quantity;
@@ -18,22 +17,9 @@ public class ShopListingManager : MonoBehaviour
     public Text costCalculationText;
     public Button purchaseButton;
 
-    public void RenderShop(List<ItemData> shopItems)
+    protected override void DisplayListing(ItemData listingItems, GameObject listingGameObject)
     {
-        if(listingGrid.childCount > 0)
-        {
-            foreach(Transform child in listingGrid)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-
-        foreach(ItemData shopItem in shopItems)
-        {
-            GameObject listingGameObject = Instantiate(shopListing, listingGrid);
-
-            listingGameObject.GetComponent<ShopListing>().Display(shopItem);
-        }
+        listingGameObject.GetComponent<ShopListing>().Display(listingItems);
     }
 
     public void OpenConfirmationScreen(ItemData item)

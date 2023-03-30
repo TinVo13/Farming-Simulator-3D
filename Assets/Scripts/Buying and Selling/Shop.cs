@@ -8,6 +8,9 @@ public class Shop : InteractableObject
     private GameObject canvasJoyStick;
     private GameObject inventoryButton;
 
+    [Header("Dialogue")]
+    public List<DialogueLine> dialogueOnShopOpen;
+
     private void Start()
     {
         canvasJoyStick = GameObject.FindWithTag("JoyStick");
@@ -30,13 +33,18 @@ public class Shop : InteractableObject
 
     public override void PickUp()
     {
-        UIManager.Instance.OpenShop(shopItems);
-        canvasJoyStick.SetActive(false);
-        inventoryButton.SetActive(false);
+        DialogueManager.Instance.StartDialogue(dialogueOnShopOpen, OpenShop);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         PickUp();
+    }
+
+    void OpenShop()
+    {
+        canvasJoyStick.SetActive(false);
+        inventoryButton.SetActive(false);
+        UIManager.Instance.OpenShop(shopItems);
     }
 }

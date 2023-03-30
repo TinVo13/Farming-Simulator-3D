@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67370545840692242a5a03c7368ec886, type: 3}
+  m_Name: Anna
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 202269728, guid: b6867c589fbf99b4dbf5862f93555710, type: 3}
+  birthday:
+    year: 0
+    season: 0
+    day: 5
+    hour: 0
+    minute: 0
+  likes:
+  - {fileID: 11400000, guid: c4ebe78210c1ba14a8dd2e2349841630, type: 2}
+  dislikes:
+  - {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
+  onFirstMeet:
+  - speaker: Anna
+    message: Are you the new farmer on the block?
+  - speaker: Anna
+    message: Nice to meet you. I'm Anna. I run a Ranch in this town, so you can visit
+      me for tips on rearing animals
+  defaultDialogue:
+  - speaker: Anna
+    message: Hey, how's the farm going?
+  - speaker: Anna
+    message: Have a nice day!
+  likedGiftDialogue:
+  - speaker: Anna
+    message: I really like this, thanks!
+  dislikedGiftDialogue:
+  - speaker: Anna
+    message: This isn't quite what I like.
+  neutralGiftDialogue:
+  - speaker: Anna
+    message: For me? Don't mind if I do!
+  birthdayLikedGiftDialogue:
+  - speaker: Anna
+    message: You remember my birthday! Thank you! I love this!
+  birthdayDislikedGiftDialogue:
+  - speaker: Anna
+    message: For my birthday?
+  - speaker: Anna
+    message: sorry! I don't like this!
+  birthdayNeutralGiftDialogue:
+  - speaker: Anna
+    message: A birthday gift! Thanks!
