@@ -93,7 +93,13 @@ public class InventoryManager : MonoBehaviour
             //Change the inventory slot to hands
             inventoryToAlter[slotIndex] = new ItemSlotData(handToEquip);
 
-            EquipHandSlot(slotToEquip);
+            if (slotToEquip.IsEmpty())
+            {
+                handToEquip.IsEmpty();
+            } else
+            {
+                EquipHandSlot(slotToEquip);
+            }
         }
 
         //Update the changes in the scene

@@ -190,13 +190,17 @@ public class CropBehaviour : MonoBehaviour
                 //Enable the Harvestable GameObject
                 harvestable.SetActive(true);
 
+                if(gameObject == null)
+                {
+                    return;
+                }
+                
                 //If the seed is not regrowable, detach the harvestable from this crop gameobject and destroy it.
                 if (!seedToGrow.regrowable)
                 {
                     //Unparent it to the crop
                     harvestable.transform.parent = null;
-                    RemoveCrop();
-                    /*Destroy(gameObject);*/
+                    harvestable.GetComponent<InteractableObject>().onInteract.AddListener(RemoveCrop);
                 }
 
                 break;

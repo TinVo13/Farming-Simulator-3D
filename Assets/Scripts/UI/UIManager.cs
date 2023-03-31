@@ -7,6 +7,14 @@ public class UIManager : MonoBehaviour, ITimeTracker
 {
     public static UIManager Instance { get; private set; }
 
+    [Header("Screen Management")]
+    public GameObject menuScreen;
+    public enum Tab
+    {
+        Inventory, Relationships
+    }
+    public Tab selectedTab;
+
     [Header("Status Bar")]
     public Image toolEquipSlot;
 
@@ -48,6 +56,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Relationships")]
     public RelationshipListingManager relationshipListingManager;
 
+    [Header("Exit")]
+    public GameObject exitButton;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -79,6 +90,37 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         yesNoPrompt.CreatePrompt(message, onYesCallback);
     }
+
+    #region Tab Management
+    public void ToggleMenuPanel()
+    {
+        menuScreen.SetActive(!menuScreen.activeSelf);
+
+        OpenWindow(selectedTab);
+
+        TabBehaviour.onTabStateChange?.Invoke();
+    }
+
+    public void OpenWindow(Tab windowToOpen)
+    {
+        relationshipListingManager.gameObject.SetActive(false);
+        inventoryPanel.SetActive(false);
+
+        switch(windowToOpen)
+        {
+            case Tab.Inventory:
+                inventoryPanel.SetActive(true);
+                RenderInventory();
+                break;
+            case Tab.Relationships:
+                relationshipListingManager.gameObject.SetActive(true);
+                relationshipListingManager.Render(RelationshipStats.relationships);
+                break;
+        }
+
+        selectedTab = windowToOpen;
+    }
+    #endregion
 
     #region Fadein Fadeout Transitions
 
@@ -222,6 +264,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public void OpenShop(List<ItemData> shopItems)
     {
+        exitButton.SetActive(true);
         shopListingManager.gameObject.SetActive(true);
         shopListingManager.Render(shopItems);
     }

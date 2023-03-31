@@ -13,7 +13,7 @@ public class SceneTransitionManager : MonoBehaviour
     public Location currentLocation;
 
     //list of all the place that are to be considered indoor
-    static readonly Location[] indoor = { Location.PlayerHome };
+    static readonly Location[] indoor = { Location.PlayerHome, Location.Farm };
 
     //The player's transform
     Transform playerPoint;
@@ -100,13 +100,12 @@ public class SceneTransitionManager : MonoBehaviour
         //Disable the player's CharacterController component
         /* CharacterController playerCharacter = playerPoint.GetComponent<CharacterController>();
          playerCharacter.enabled = false;*/
-        if (startPoint != null && playerPoint != null)
-        {
+        if (playerPoint == null) return;
             //Change the player's position to the start point
             playerPoint.position = startPoint.position;
             playerPoint.rotation = startPoint.rotation;
 
-        }
+        
 
         //Re-enable player character controller so he can move
         /* playerCharacter.enabled = true;*/
