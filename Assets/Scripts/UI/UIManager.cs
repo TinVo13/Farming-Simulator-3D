@@ -59,6 +59,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Exit")]
     public GameObject exitButton;
 
+    [Header("OptionBuyOrSell")]
+    public GameObject option;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -269,6 +272,12 @@ public class UIManager : MonoBehaviour, ITimeTracker
         shopListingManager.Render(shopItems);
     }
 
+    public void OpenOption()
+    {
+        exitButton.SetActive(true);
+        option.SetActive(true);
+    }
+
     public void ToggleRelationshipPanel()
     {
         GameObject panel = relationshipListingManager.gameObject;
@@ -278,5 +287,10 @@ public class UIManager : MonoBehaviour, ITimeTracker
         {
             relationshipListingManager.Render(RelationshipStats.relationships);
         }
+    }
+
+    public void OpenBuyOption()
+    {
+        Shop.Instance.OpenShop();
     }
 }

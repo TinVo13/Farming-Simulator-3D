@@ -2,8 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shop : InteractableObject
+public class Shop : MonoBehaviour
 {
+    public static Shop Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+    }
+
     public List<ItemData> shopItems;
     private GameObject canvasJoyStick;
     private GameObject inventoryButton;
@@ -31,9 +46,10 @@ public class Shop : InteractableObject
         }
     }
 
-    public override void PickUp()
+    public void PickUp()
     {
-        DialogueManager.Instance.StartDialogue(dialogueOnShopOpen, OpenShop);
+        /*DialogueManager.Instance.StartDialogue(dialogueOnShopOpen, OpenShop);*/
+        DialogueManager.Instance.StartDialogue(dialogueOnShopOpen, OpenOption);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,10 +57,15 @@ public class Shop : InteractableObject
         PickUp();
     }
 
-    void OpenShop()
+    public void OpenShop()
     {
         canvasJoyStick.SetActive(false);
         inventoryButton.SetActive(false);
         UIManager.Instance.OpenShop(shopItems);
+    }
+
+    void OpenOption()
+    {
+        UIManager.Instance.OpenOption();
     }
 }

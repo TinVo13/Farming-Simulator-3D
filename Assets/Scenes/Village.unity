@@ -1288,11 +1288,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4802134562677756, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
   m_PrefabInstance: {fileID: 163481350}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &166075903 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4274868087642060, guid: 16e7451e81164bc4caac73768f16ceb6, type: 3}
-  m_PrefabInstance: {fileID: 1949240629}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &180227245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4187,9 +4182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca7654530b3af24399fde0540584ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FollowTarget: {fileID: 166075903}
-  smoothSpeed: 0.125
-  offset: {x: 0, y: 3, z: -6}
 --- !u!114 &522811757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10329,10 +10321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1789863cdc06aeb4484c896582e920b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 05a42b776391fe64eabb676929630790, type: 2}
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
   shopItems:
   - {fileID: 11400000, guid: 05a42b776391fe64eabb676929630790, type: 2}
   - {fileID: 11400000, guid: 1822a13aed70fcb488f6e44b804edddf, type: 2}
