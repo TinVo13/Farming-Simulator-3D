@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: This is carrot
   thumbnail: {fileID: -1552545284, guid: 463bb72938a883a4db7d6d35c9c92dba, type: 3}
-  gameModel: {fileID: 1650316231183834, guid: 4cc231a2ac0a02941b660e196db6ce29, type: 3}
+  gameModel: {fileID: 1000011853396770, guid: becd827951d0b4046808ba97418ecf28, type: 3}
   cost: 20000

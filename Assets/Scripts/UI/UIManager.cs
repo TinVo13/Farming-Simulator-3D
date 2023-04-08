@@ -189,7 +189,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
         RenderInventoryPanel(inventoryToolSlots, toolSlots);
 
         RenderInventoryPanel(inventoryItemSlots, itemSlots);
-        RenderInventoryPanel(inventoryItemSlots, itemSellSlots);
+        RenderInventoryPanelSell(inventoryItemSlots, itemSellSlots);
 
         toolHandSlot.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
         itemHandSlot.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item));
