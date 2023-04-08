@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats
 {
-    public static int money { get; private set; }
+    public static int money { get; private set; } = 10000;
 
     public const string CURRENCY = "VND";
 

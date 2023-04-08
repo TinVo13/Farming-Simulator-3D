@@ -11,4 +11,9 @@ public class ToggleMenuPanel : MonoBehaviour
         bool active = Panel.activeSelf;
         Panel.SetActive(!active);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

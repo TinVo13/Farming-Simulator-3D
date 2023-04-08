@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
 
     [Header("Internal Clock")]
     [SerializeField]
-    GameTimestamp timestamp;
+    public GameTimestamp timestamp;
     public float timeScale = 1.0f;
 
     [Header("Day and Night cycle")]

@@ -1,19 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ShippingBin : InteractableObject 
+public class ShippingBin : MonoBehaviour
 {
-    public static int hourToShip = 18;
+    /*public static int hourToShip = 0;*/
+    /*public static GameTimestamp timeShip = TimeManager.Instance.GetGameTimestamp();*/
+    public static ShippingBin Instance { get; private set; }
+
+    public InventorySlot[] itemSlots;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+    }
+
     public static List<ItemSlotData> itemsToShip = new List<ItemSlotData>();
 
-    public override void PickUp()
+    public void PickUp()
     {
         ItemData handSlotItem = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Item);
 
         if (handSlotItem == null) return;
 
-        UIManager.Instance.TriggerYesNoPrompt($"Do you want to sell {handSlotItem.name} ? ", PlaceItemInShippingBin);
+        UIManager.Instance.TriggerYesNoPrompt($"Do you want to sell {handSlotItem.name} with price {handSlotItem.cost} ? ", PlaceItemInShippingBin);
     }
 
     void PlaceItemInShippingBin()
@@ -22,11 +41,17 @@ public class ShippingBin : InteractableObject
 
         itemsToShip.Add(new ItemSlotData(handSlot));
 
+        ItemSlotData[] inventoryItemSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Item);
+
         handSlot.Empty();
 
         InventoryManager.Instance.RenderHand();
 
-        foreach(ItemSlotData item in itemsToShip)
+        UIManager.Instance.RenderInventory();
+
+        UIManager.Instance.RenderInventoryPanelSell(inventoryItemSlots, itemSlots);
+
+        foreach (ItemSlotData item in itemsToShip)
         {
             Debug.Log($"{item.itemData.name} x {item.quantity}");
         }
@@ -54,4 +79,5 @@ public class ShippingBin : InteractableObject
     {
         PickUp();
     }
+
 }

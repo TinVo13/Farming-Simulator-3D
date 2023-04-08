@@ -54,10 +54,11 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
     void UpdateShippingState(GameTimestamp timestamp)
     {
         //Check time if it exactly 18:00 h
-        if(timestamp.hour == ShippingBin.hourToShip && timestamp.minute == 0)
+       /* if(timestamp.hour == ShippingBin.time && timestamp.minute == 0)
         {
             ShippingBin.ShipItems();
-        }
+        }*/
+            ShippingBin.ShipItems();
     }
 
     void UpdateFarmState(GameTimestamp timestamp)
@@ -145,21 +146,24 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
         screenFadeOut = true;
     }
 
+
     public GameSaveState ExportSaveState()
     {
+
         //Retrieve Farm Data
-        List<LandSaveState> landData = LandManager.farmData.Item1;
-        List<CropSaveState> cropData = LandManager.farmData.Item2;
+        List<LandSaveState> landData = LandManager.farmData?.Item1;
+        List<CropSaveState> cropData = LandManager.farmData?.Item2;
 
         //Retrieve Inventory Data
         ItemSlotData[] toolSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Tool);
         ItemSlotData[] itemSlots = InventoryManager.Instance.GetInventorySlots(InventorySlot.InventoryType.Item);
 
         ItemSlotData equippedItemSlot = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item);
-        ItemSlotData equippedToolSlot = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool);
+        ItemSlotData equippedToolSlot = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool);  
 
         //Time
         GameTimestamp timestamp = TimeManager.Instance.GetGameTimestamp();
+
         return new GameSaveState(landData, cropData, toolSlots, itemSlots, equippedItemSlot, equippedToolSlot, timestamp, PlayerStats.money, RelationshipStats.relationships);
     }
 

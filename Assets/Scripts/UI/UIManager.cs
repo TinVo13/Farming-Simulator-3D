@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     [Header("Screen Management")]
     public GameObject menuScreen;
+
+    //Check if the screen has finished fading out
+    bool screenFadeOut;
     public enum Tab
     {
         Inventory, Relationships
@@ -27,11 +31,15 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Inventory System")]
     public GameObject inventoryPanel;
 
+
     public HandInventorySlot toolHandSlot;
 
     public InventorySlot[] toolSlots;
 
     public HandInventorySlot itemHandSlot;
+
+    public SellItem itemSell;
+    public InventorySlot[] itemSellSlots;
 
     public InventorySlot[] itemSlots;
 
@@ -84,6 +92,11 @@ public class UIManager : MonoBehaviour, ITimeTracker
         DisplayItemInfo(null);
 
         TimeManager.Instance.RegisterTracker(this);
+    }
+
+    public void SaveData()
+    {
+        SaveManager.Save(GameStateManager.Instance.ExportSaveState());
     }
 
     public void TriggerYesNoPrompt(string message, System.Action onYesCallback)
@@ -161,6 +174,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
         {
             toolSlots[i].AssignIndex(i);
             itemSlots[i].AssignIndex(i);
+            itemSellSlots[i].AssignIndex(i);
         }
     }
 
@@ -175,9 +189,12 @@ public class UIManager : MonoBehaviour, ITimeTracker
         RenderInventoryPanel(inventoryToolSlots, toolSlots);
 
         RenderInventoryPanel(inventoryItemSlots, itemSlots);
+        RenderInventoryPanel(inventoryItemSlots, itemSellSlots);
 
         toolHandSlot.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
         itemHandSlot.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item));
+
+        itemSell.Display(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item));
 
         ItemData equippedTool = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Tool);
 
@@ -210,6 +227,17 @@ public class UIManager : MonoBehaviour, ITimeTracker
             uiSlots[i].Display(slots[i]);
         }
     }
+
+    public void RenderInventoryPanelSell(ItemSlotData[] slots, InventorySlot[] uiSlots)
+    {
+        uiSlots = itemSellSlots;
+
+        for (int i = 0; i < uiSlots.Length; i++)
+        {
+            uiSlots[i].Display(slots[i]);
+        }
+    }
+
     public void ToogleInventoryPanel()
     {
         //If the panel is hidden, show it and vice versa

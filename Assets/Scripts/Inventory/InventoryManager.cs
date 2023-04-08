@@ -83,6 +83,7 @@ public class InventoryManager : MonoBehaviour
             handToEquip.AddQuantity(slotToAlter.quantity);
             //Empty the inventory slot
             slotToAlter.Empty();
+
         } 
         else
         {
@@ -95,7 +96,7 @@ public class InventoryManager : MonoBehaviour
 
             if (slotToEquip.IsEmpty())
             {
-                handToEquip.IsEmpty();
+                handToEquip.Empty();
             } else
             {
                 EquipHandSlot(slotToEquip);
@@ -107,6 +108,7 @@ public class InventoryManager : MonoBehaviour
         {
             RenderHand();
         }
+
         //Update the changes to the UI
         UIManager.Instance.RenderInventory();
     }
@@ -222,6 +224,7 @@ public class InventoryManager : MonoBehaviour
         if (inventoryType == InventorySlot.InventoryType.Item)
         {
             return equippedItemSlot.itemData;
+
         }
         return equippedToolSlot.itemData;
     }

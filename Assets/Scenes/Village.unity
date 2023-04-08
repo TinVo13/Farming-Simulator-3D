@@ -4095,7 +4095,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522811750}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &522811752
 Behaviour:
   m_ObjectHideFlags: 0
@@ -10322,8 +10322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopItems:
-  - {fileID: 11400000, guid: 05a42b776391fe64eabb676929630790, type: 2}
-  - {fileID: 11400000, guid: 1822a13aed70fcb488f6e44b804edddf, type: 2}
+  - {fileID: 11400000, guid: e414692d8d0297c4da03f591a885f19a, type: 2}
+  - {fileID: 11400000, guid: 45ef73ecb13529b408671385febb800a, type: 2}
   dialogueOnShopOpen:
   - speaker: Janie
     message: Welcome to my store.! I am saying a bunch of stuff that will take a

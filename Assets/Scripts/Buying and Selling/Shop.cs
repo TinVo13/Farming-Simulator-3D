@@ -66,6 +66,8 @@ public class Shop : MonoBehaviour
 
     void OpenOption()
     {
+        canvasJoyStick.SetActive(false);
+        inventoryButton.SetActive(false);
         UIManager.Instance.OpenOption();
     }
 }
