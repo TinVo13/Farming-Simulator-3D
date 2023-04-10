@@ -11,6 +11,7 @@ TagManager:
   - JoyStick
   - InventoryButton
   - Buy
+  - UI
   layers:
   - Default
   - TransparentFX

@@ -4,14 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Localization.Settings;
 
 public class MainMenu : MonoBehaviour
 {
     public Button loadGameButton;
+    [SerializeField]
+    private GameObject panel;
 
     // Start is called before the first frame update
     void Start()
     {
+        string playerName = PlayerPrefs.GetString("PlayerName");
+        if (string.IsNullOrEmpty(playerName))
+        {
+            panel.SetActive(true);
+        }
         loadGameButton.interactable = SaveManager.HasSave();
     }
 

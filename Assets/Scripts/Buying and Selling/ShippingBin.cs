@@ -32,7 +32,7 @@ public class ShippingBin : MonoBehaviour
 
         if (handSlotItem == null) return;
 
-        UIManager.Instance.TriggerYesNoPrompt($"Do you want to sell {handSlotItem.name} with price {handSlotItem.cost} ? ", PlaceItemInShippingBin);
+        //UIManager.Instance.TriggerYesNoPrompt($"Do you want to sell {handSlotItem.name} with price {handSlotItem.cost} ? ", PlaceItemInShippingBin);
     }
 
     void PlaceItemInShippingBin()

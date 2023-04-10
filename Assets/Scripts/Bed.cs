@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class Bed : MonoBehaviour
 {
-    /*   public override void PickUp()
-       {
-           UIManager.Instance.TriggerYesNoPrompt("Do you want to sleep?", GameStateManager.Instance.Sleep);
-       }*/
+    [SerializeField]
+    private GameObject panel;
     private void OnTriggerEnter(Collider other)
     {
-        UIManager.Instance.TriggerYesNoPrompt("Do you want to sleep?", GameStateManager.Instance.Sleep);
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sleepKey");
+        UIManager.Instance.TriggerYesNoPrompt(text, GameStateManager.Instance.Sleep);
+        //panel.SetActive(true);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        panel.SetActive(false);
     }
 }

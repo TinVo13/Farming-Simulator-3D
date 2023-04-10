@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 95786641beb03544ab7ae12595e951de, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5652193689036914695
   m_TableData:
   - m_Id: 18288513024
     m_Localized: New Game
@@ -102,6 +103,59 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 7609375557718016
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7618095515734016
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619218586767360
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619272500350976
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619315710070784
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619461999005696
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620038514479104
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620088946790400
+    m_Localized: Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620133817454592
+    m_Localized: What do you want?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620552216055808
+    m_Localized: Buy {Item.name}?
+    m_Metadata:
+      m_Items:
+      - rid: 5652193689036914695
+  - m_Id: 7626039661727744
+    m_Localized: Do you want to sleep?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7644246388805632
+    m_Localized: What's your name?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5652193689036914695
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0090d413da121b00

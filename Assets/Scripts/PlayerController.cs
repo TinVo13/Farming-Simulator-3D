@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     private CharacterController characterController;
 
-    private bool isRunning = false;
+    //private bool isRunning = false;
     private float moveSpeed = 4f;
 
     [Header("Movement System")]

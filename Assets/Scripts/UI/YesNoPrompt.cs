@@ -9,6 +9,8 @@ public class YesNoPrompt : MonoBehaviour
     [SerializeField]
     Text promptText;
     Action onYesSelected;
+    [SerializeField]
+    private GameObject panel;
 
     public void CreatePrompt(string message, Action onYesSelected)
     {
@@ -28,4 +30,14 @@ public class YesNoPrompt : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+    public void Yes()
+    {
+        GameStateManager.Instance.Sleep();
+        panel.SetActive(false);
+    }
+    public void No()
+    {
+        panel.SetActive(false);
+    }
+
 }

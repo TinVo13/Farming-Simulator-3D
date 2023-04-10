@@ -99,6 +99,54 @@ MonoBehaviour:
     m_Key: closeKey
     m_Metadata:
       m_Items: []
+  - m_Id: 7609375557718016
+    m_Key: saveKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7618095515734016
+    m_Key: nextKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619218586767360
+    m_Key: yesKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619272500350976
+    m_Key: noKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619315710070784
+    m_Key: confirmKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619461999005696
+    m_Key: cancelKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620038514479104
+    m_Key: buyKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620088946790400
+    m_Key: sellKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620133817454592
+    m_Key: wantKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620552216055808
+    m_Key: buyItemKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7626039661727744
+    m_Key: sleepKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7644246388805632
+    m_Key: playerKey
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
