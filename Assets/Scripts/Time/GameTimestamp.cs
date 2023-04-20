@@ -2,30 +2,44 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using System;
 
 [System.Serializable]
 public class GameTimestamp 
 {
     public int year;
+
     public enum Season
     {
-        Spring,
-        Summer,
-        Fall,
-        Winter
+        // Spring,
+        // Summer,
+        // Fall,
+        // Winter
+       Mùa_Xuân,
+       Mùa_Hạ,
+       Mùa_Thu,
+       Mùa_Đông
     }
 
     public Season season;
 
     public enum DayOfTheWeek
     {
-        Sunday,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
+        // Sunday,
+        // Monday,
+        // Tuesday,
+        // Wednesday,
+        // Thursday,
+        // Friday,
+        // Saturday,
+        Chủ_Nhật,
+        Thứ_Hai,
+        Thứ_Ba,
+        Thứ_Tư,
+        Thứ_Năm,
+        Thứ_Sáu,
+        Thứ_Bảy,
     }
 
     public int day;
@@ -70,9 +84,9 @@ public class GameTimestamp
         {
             day = 1;
             
-            if(season == Season.Winter)
+            if(season == Season.Mùa_Đông)
             {
-                season = Season.Spring;
+                season = Season.Mùa_Xuân;
 
                 year++;
             }  else

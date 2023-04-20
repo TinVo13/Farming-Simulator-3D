@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
 
     [Header("Internal Clock")]
     [SerializeField]
-    public GameTimestamp timestamp;
+    GameTimestamp timestamp;
     public float timeScale = 1.0f;
 
     [Header("Day and Night cycle")]
@@ -36,7 +36,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timestamp = new GameTimestamp(0, GameTimestamp.Season.Spring, 1, 6, 0);
+        timestamp = new GameTimestamp(0, GameTimestamp.Season.Mùa_Xuân, 1, 6, 0);
         StartCoroutine(TimeUpdate());
     }
 
@@ -45,7 +45,7 @@ public class TimeManager : MonoBehaviour
         this.timestamp = new GameTimestamp(timestamp);
     }
 
-    IEnumerator TimeUpdate()
+    public IEnumerator TimeUpdate()
     {
         while (true) 
         {
@@ -53,6 +53,11 @@ public class TimeManager : MonoBehaviour
             yield return new WaitForSeconds(1 / timeScale);
         }
       
+    }
+
+    public void UpdateTime()
+    {
+        StartCoroutine(TimeUpdate());
     }
 
     public void Tick()

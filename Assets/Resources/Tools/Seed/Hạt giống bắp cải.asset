@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 492db76d53a5b344e9055515351667ff, type: 3}
-  m_Name: Tomato Seeds
+  m_Name: "H\u1EA1t gi\u1ED1ng b\u1EAFp c\u1EA3i"
   m_EditorClassIdentifier: 
-  description: Seeds to grow tomatos
+  description: " \u0110\xE2y l\xE0 h\u1EA1t gi\u1ED1ng \u0111\u1EC3 c\xE2y b\u1EAFp
+    c\u1EA3i"
   thumbnail: {fileID: -1608940185, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
   gameModel: {fileID: 0}
-  cost: 15000
-  hoursToGrow: 4
-  cropToYield: {fileID: 11400000, guid: 79c47a35f8e64b44f9794720d8a0f112, type: 2}
-  seedling: {fileID: 3641896794726487424, guid: 7a8f69240d307264b885eaeddaf9cb0d, type: 3}
+  cost: 10000
+  hoursToGrow: 2
+  cropToYield: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
+  seedling: {fileID: 2999421618381449331, guid: 3e039732079110844b85e017f502c398, type: 3}
   regrowable: 1
-  hoursToRegrow: 2
+  hoursToRegrow: 1

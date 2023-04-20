@@ -152,6 +152,58 @@ MonoBehaviour:
     m_Localized: What's your name?
     m_Metadata:
       m_Items: []
+  - m_Id: 8376281141252096
+    m_Localized: Do you want sell?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8376411194036224
+    m_Localized: With price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175307733536768
+    m_Localized: Spring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175322572984320
+    m_Localized: Summer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175324959543296
+    m_Localized: Fall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175326867951616
+    m_Localized: Winter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175330978369536
+    m_Localized: Monday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175332689645568
+    m_Localized: Tuesday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175334585470976
+    m_Localized: Wednesday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175336682622976
+    m_Localized: Thursday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175338762997760
+    m_Localized: Friday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175343829716992
+    m_Localized: Sunday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11175341787090944
+    m_Localized: Saturday
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

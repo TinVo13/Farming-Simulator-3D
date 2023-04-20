@@ -47,10 +47,10 @@ public class Land : MonoBehaviour, ITimeTracker
     {
         renderer = GetComponent<Renderer>();
 
-        /*Material materialToSwitch = soilMat;
-        //Get the renderer to apply the changes
-        renderer.material = materialToSwitch;*/
-        SwitchLandStatus(LandStatus.Soil);
+        // Material materialToSwitch = soilMat;
+        // //Get the renderer to apply the changes
+        // renderer.material = materialToSwitch;
+ 
 
         //Deselect the land by default
         Select(false);
@@ -287,7 +287,7 @@ public class Land : MonoBehaviour, ITimeTracker
             {
                 SwitchLandStatus(LandStatus.Farmland);
             }*/
-            if (hoursElapsed > 1)
+            if (hoursElapsed > 48)
             {
                 //Dry up (Switch back to farmland)
                 SwitchLandStatus(LandStatus.Farmland);
@@ -304,9 +304,11 @@ public class Land : MonoBehaviour, ITimeTracker
         }
     }
 
+
     private void OnDestroy()
     {
         //Unsubscribe from the list on destroy
         TimeManager.Instance.UnregisterTracker(this); 
     }
+
 }

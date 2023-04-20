@@ -120,3 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []

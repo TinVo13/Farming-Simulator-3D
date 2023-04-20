@@ -41,11 +41,4 @@ public class GameSaveState
         this.money = money;
         this.relationships = relationships;
     }
-
-    public GameSaveState(GameTimestamp timestamp, int money, List<NPCRelationshipState> relationships)
-    {
-        this.timestamp = timestamp;
-        this.money = money;
-        this.relationships = relationships;
-    }
 }

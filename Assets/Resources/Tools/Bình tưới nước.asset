@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db2b635b748dc344c966aec040fe7ed4, type: 3}
-  m_Name: Pickaxe
+  m_Name: "B\xECnh t\u01B0\u1EDBi n\u01B0\u1EDBc"
   m_EditorClassIdentifier: 
-  description: This is Pickaxe. Strong with you
-  thumbnail: {fileID: 316988583, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
+  description: " \u0110\xE2y l\xE0 b\xECnh t\u01B0\u1EDBi n\u01B0\u1EDBc. Quan tr\u1ECDng
+    \u0111\u1ED1i v\u1EDBi m\u1ED7i lo\u1EA1i tr\xE1i c\xE2y"
+  thumbnail: {fileID: 21300000, guid: bc4bca35e0995d744a5575e7f8297b49, type: 3}
   gameModel: {fileID: 0}
-  toolType: 3
+  cost: 0
+  toolType: 2

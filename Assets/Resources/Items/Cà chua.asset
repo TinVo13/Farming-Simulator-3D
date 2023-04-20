@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e08103004b0dd44885a23be177d13c, type: 3}
-  m_Name: Carrot
+  m_Name: "C\xE0 chua"
   m_EditorClassIdentifier: 
-  description: This is carrot
-  thumbnail: {fileID: -1552545284, guid: 463bb72938a883a4db7d6d35c9c92dba, type: 3}
-  gameModel: {fileID: 1000011853396770, guid: becd827951d0b4046808ba97418ecf28, type: 3}
-  cost: 20000
+  description: "\u0110\xE2y l\xE0 c\xE0 chua"
+  thumbnail: {fileID: 395226013, guid: 463bb72938a883a4db7d6d35c9c92dba, type: 3}
+  gameModel: {fileID: 6605833748945695822, guid: ef7ac3c8ce0224745acecbfe780f9748, type: 3}
+  cost: 15000

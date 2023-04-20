@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System.Text;
+using UnityEngine.Localization.Settings;
 
 public class ShippingBin : MonoBehaviour
 {
@@ -32,7 +36,10 @@ public class ShippingBin : MonoBehaviour
 
         if (handSlotItem == null) return;
 
-        //UIManager.Instance.TriggerYesNoPrompt($"Do you want to sell {handSlotItem.name} with price {handSlotItem.cost} ? ", PlaceItemInShippingBin);
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sellKeyss");
+        string textPrice = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sellKeys");
+
+        UIManager.Instance.TriggerYesNoPromptCustom(text + $" {handSlotItem.name} " + textPrice + $" {handSlotItem.cost}  ?", PlaceItemInShippingBin);
     }
 
     void PlaceItemInShippingBin()

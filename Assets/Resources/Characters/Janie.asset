@@ -25,33 +25,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bdc9d73d4dc218c4c9979299e32fa101, type: 2}
   onFirstMeet:
   - speaker: Janie
-    message: 'Are you the new farmer?
-
-'
+    message: "\rB\u1EA1n c\xF3 ph\u1EA3i l\xE0 ng\u01B0\u1EDDi n\xF4ng d\xE2n m\u1EDBi?"
   - speaker: Janie
-    message: Nice to meet you, I'm Janie
+    message: "R\u1EA5t vui \u0111\u01B0\u1EE3c g\u1EB7p b\u1EA1n, t\xF4i l\xE0 Janie"
   defaultDialogue:
   - speaker: Janie
-    message: Good morning!
+    message: "\rCha\u0300o bu\xF4\u0309i sa\u0301ng!"
   likedGiftDialogue:
   - speaker: Janie
-    message: Thank you! I really like this!
+    message: "\rC\u1EA3m \u01A1n! T\xF4i th\u1EF1c s\u1EF1 th\xEDch m\xF3n qu\xE0
+      n\xE0y!"
   dislikedGiftDialogue:
   - speaker: Janie
-    message: I dislike this! sorry
+    message: "\rT\xF4i kh\xF4ng th\xEDch c\xE1i n\xE0y! Xin l\u1ED7i"
   neutralGiftDialogue:
   - speaker: Janie
-    message: Thank you!
+    message: "\rC\u1EA3m \u01A1n!"
   birthdayLikedGiftDialogue:
   - speaker: Janie
-    message: A birthday gift?
+    message: "\rM\u1ED9t m\xF3n qu\xE0 sinh nh\u1EADt?"
   - speaker: Janie
-    message: That's very kind of you.  I like it!
+    message: "\rB\u1EA1n th\u1EADt t\u1ED1t b\u1EE5ng. T\xF4i th\xEDch n\xF3!"
   birthdayDislikedGiftDialogue:
   - speaker: Janie
-    message: uh... This is for my birthday?
+    message: "uh... \u0110\xE2y l\xE0 qu\xE0 t\u1EB7ng cho sinh nh\u1EADt c\u1EE7a
+      t\xF4i?"
   - speaker: Janie
     message: ...
   birthdayNeutralGiftDialogue:
   - speaker: Janie
-    message: Oh, a birthday gift! Thank you!
+    message: "\r\u1ED2, m\u1ED9t m\xF3n qu\xE0 sinh nh\u1EADt! C\u1EA3m \u01A1n!"

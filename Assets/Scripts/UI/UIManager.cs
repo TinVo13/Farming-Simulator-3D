@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     [Header("Yes No Prompt")]
     public YesNoPrompt yesNoPrompt;
+    public YesNoPromptCustom yesNoPromptCustom;
 
     [Header("Player Stats")]
     public Text moneyText;
@@ -91,20 +92,45 @@ public class UIManager : MonoBehaviour, ITimeTracker
         RenderPlayerStats();
         DisplayItemInfo(null);
 
-        TimeManager.Instance.RegisterTracker(this);
+        // TimeManager.Instance.RegisterTracker(this);
+    }
+
+    void FixedUpdate()
+    {
+        GameTimestamp timestampOfNextDay = TimeManager.Instance.GetGameTimestamp();
+         ClockUpdate(timestampOfNextDay);
     }
 
     public void SaveData()
     {
-        SaveManager.Save(GameStateManager.Instance.ExportSaveState());
+        // Debug.Log(SceneTransitionManager.Instance.currentLocation);
+        // GameTimestamp timestamp = TimeManager.Instance.GetGameTimestamp();
+        // GameStateManager.Instance.ClockUpdate(timestamp);
+        // TimeManager.Instance.Tick();
+        // TimeManager.Instance.UpdateTime();
+        // SaveManager.Save(GameStateManager.Instance.ExportSaveState());
+        LandManager.Instance.SaveLandAndCropData();
+        GameStateManager.Instance.SaveGame();
     }
 
-    public void TriggerYesNoPrompt(string message, System.Action onYesCallback)
+
+        /*SaveManager.Save(GameStateManager.Instance.ExportSaveState());*/
+
+
+        public void TriggerYesNoPrompt(string message, System.Action onYesCallback)
     {
         //Set active the gameObject of the Yes No Prompt
         yesNoPrompt.gameObject.SetActive(true);
 
         yesNoPrompt.CreatePrompt(message, onYesCallback);
+    }
+
+    public void TriggerYesNoPromptCustom(string message, System.Action onYesCallback)
+    {
+        //Set active the gameObject of the Yes No Prompt
+        yesNoPromptCustom.gameObject.SetActive(true);
+
+        yesNoPromptCustom.CreatePrompt(message, onYesCallback);
     }
 
     #region Tab Management

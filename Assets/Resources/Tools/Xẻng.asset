@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db2b635b748dc344c966aec040fe7ed4, type: 3}
-  m_Name: Axe
+  m_Name: "X\u1EBBng"
   m_EditorClassIdentifier: 
-  description: This is Axe, Very good
-  thumbnail: {fileID: 729430843, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
+  description: "Gi\xFAp b\u1EA1n h\u1EE7y v\u1EADt ph\u1EA9m tr\u1ED3ng tr\xEAn \xF4
+    \u0111\u1EA5t"
+  thumbnail: {fileID: 1633428283, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
   gameModel: {fileID: 0}
-  toolType: 0
+  cost: 0
+  toolType: 4

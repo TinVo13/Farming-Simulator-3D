@@ -1,4 +1,3 @@
-using Palmmedia.ReportGenerator.Core.Parser;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -61,18 +60,22 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
             ShippingBin.ShipItems();
     }
 
-    void UpdateFarmState(GameTimestamp timestamp)
+    public void UpdateFarmState(GameTimestamp timestamp)
     {
         //Update the land and Crop Save states as long as the player is outside of the farm scene
-        if (SceneTransitionManager.Instance.currentLocation != SceneTransitionManager.Location.Farm)
-        {
+
+        
             if (LandManager.farmData == null) return;
             //Retrieve the land and Farm data from the static variable
-            List<LandSaveState> landData = LandManager.farmData.Item1;
-            List<CropSaveState> cropData = LandManager.farmData.Item2;
+            List<LandSaveState> landData = LandManager.farmData?.Item1;
+            List<CropSaveState> cropData = LandManager.farmData?.Item2;
+
+            Debug.Log(landData.Count);
 
             //If there are no crops planted, we don't need to worry abour updating anything
             if (cropData.Count == 0) return;
+
+            Debug.Log(cropData.Count);
 
             for (int i = 0; i < cropData.Count; i++)
             {
@@ -104,7 +107,7 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
                     + crop.health + "\n Growth: " + crop.growth + "\n State: "
                     + crop.cropState.ToString());
             });
-        }
+        
     }
 
     public void Sleep()
@@ -114,6 +117,17 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
         screenFadeOut = false;
         StartCoroutine(TransitionTime());
     }
+
+    public void SaveGame()
+    {
+        SaveManager.Save(ExportSaveState());
+    }
+
+    //      void FixedUpdate()
+    // {
+    //     GameTimestamp timestampOfNextDay = TimeManager.Instance.GetGameTimestamp();
+    //      ClockUpdate(timestampOfNextDay);
+    // }
 
     IEnumerator TransitionTime()
     {
@@ -133,6 +147,7 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
             yield return new WaitForSeconds(1f);
         }
         TimeManager.Instance.SkipTime(timestampOfNextDay);
+
         //Save game
         SaveManager.Save(ExportSaveState());
         //Reset the boolean
@@ -163,6 +178,8 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
 
         //Time
         GameTimestamp timestamp = TimeManager.Instance.GetGameTimestamp();
+        int timestampNow = GameTimestamp.TimestampInMinutes(timestamp);
+        Debug.Log("Time now " + timestampNow);
 
         return new GameSaveState(landData, cropData, toolSlots, itemSlots, equippedItemSlot, equippedToolSlot, timestamp, PlayerStats.money, RelationshipStats.relationships);
     }

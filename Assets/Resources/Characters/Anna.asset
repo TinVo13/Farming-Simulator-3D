@@ -25,32 +25,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
   onFirstMeet:
   - speaker: Anna
-    message: Are you the new farmer on the block?
+    message: "\rB\u1EA1n c\xF3 ph\u1EA3i l\xE0 n\xF4ng d\xE2n m\u1EDBi chuy\u1EC3n
+      \u0111\u1EBFn l\xE0ng n\xE0y?"
   - speaker: Anna
-    message: Nice to meet you. I'm Anna. I run a Ranch in this town, so you can visit
-      me for tips on rearing animals
+    message: "\rR\u1EA5t vui \u0111\u01B0\u1EE3c g\u1EB7p b\u1EA1n. T\xF4i l\xE0
+      Anna. T\xF4i \u0111i\u1EC1u h\xE0nh m\u1ED9t Trang tr\u1EA1i \u1EDF th\u1ECB
+      tr\u1EA5n n\xE0y, v\xEC v\u1EADy b\u1EA1n c\xF3 th\u1EC3 gh\xE9 th\u0103m t\xF4i
+      \u0111\u1EC3 bi\u1EBFt c\xE1c m\u1EB9o v\u1EC1 ch\u0103n nu\xF4i"
   defaultDialogue:
   - speaker: Anna
-    message: Hey, how's the farm going?
+    message: "\rN\xE0y, tr\u1ED3ng tr\u1ECDt th\u1EBF n\xE0o r\u1ED3i?"
   - speaker: Anna
-    message: Have a nice day!
+    message: "\rCh\xFAc m\u1ED9t ng\xE0y t\u1ED1t l\xE0nh!"
   likedGiftDialogue:
   - speaker: Anna
-    message: I really like this, thanks!
+    message: "\rT\xF4i th\u1EF1c s\u1EF1 th\xEDch m\xF3n qu\xE0 n\xE0y, c\u1EA3m
+      \u01A1n!"
   dislikedGiftDialogue:
   - speaker: Anna
-    message: This isn't quite what I like.
+    message: "\r\u0110\xE2y kh\xF4ng ph\u1EA3i l\xE0 m\xF3n qu\xE0 t\xF4i th\xEDch."
   neutralGiftDialogue:
   - speaker: Anna
-    message: For me? Don't mind if I do!
+    message: "\rCho t\xF4i? \u0110\u1EEBng b\u1EADn t\xE2m!"
   birthdayLikedGiftDialogue:
   - speaker: Anna
-    message: You remember my birthday! Thank you! I love this!
+    message: "\rB\u1EA1n nh\u1EDB ng\xE0y sinh nh\u1EADt c\u1EE7a t\xF4i! C\u1EA3m
+      \u01A1n! T\xF4i th\xEDch n\xF3!"
   birthdayDislikedGiftDialogue:
   - speaker: Anna
-    message: For my birthday?
+    message: "\rCho ng\xE0y sinh nh\xE2\u0323t cu\u0309a t\xF4i?"
   - speaker: Anna
-    message: sorry! I don't like this!
+    message: "\rXin l\u1ED7i! T\xF4i kh\xF4ng th\xEDch n\xF3!"
   birthdayNeutralGiftDialogue:
   - speaker: Anna
-    message: A birthday gift! Thanks!
+    message: "\rM\u1ED9t m\xF3n qu\xE0 sinh nh\u1EADt! C\u1EA3m \u01A1n!"

@@ -10326,12 +10326,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 45ef73ecb13529b408671385febb800a, type: 2}
   dialogueOnShopOpen:
   - speaker: Janie
-    message: Welcome to my store.! I am saying a bunch of stuff that will take a
-      while for me to complete, so what happen if you were to press the 'Next' button
-      in the middle of it?
+    message: "\rCh\xE0o m\u1EEBng b\u1EA1n \u0111\u1EBFn v\u1EDBi c\u1EEDa h\xE0ng
+      c\u1EE7a t\xF4i.! T\xF4i \u0111ang n\xF3i m\u1ED9t lo\u1EA1t n\u1ED9i dung
+      m\xE0 t\xF4i s\u1EBD m\u1EA5t m\u1ED9t l\xFAc \u0111\u1EC3 ho\xE0n th\xE0nh,
+      v\u1EADy \u0111i\u1EC1u g\xEC s\u1EBD x\u1EA3y ra n\u1EBFu b\u1EA1n nh\u1EA5n
+      n\xFAt 'Ti\u1EBFp' \u1EDF cu\u1ED1i h\u1ED9i tho\u1EA1i?"
   - speaker: Janie
-    message: We need a variety of seeds available. I hope they will be useful for
-      your farm!
+    message: "\rCh\xFAng t\xF4i c\xF3 nhi\u1EC1u lo\u1EA1i h\u1EA1t gi\u1ED1ng c\xF3
+      s\u1EB5n. T\xF4i hy v\u1ECDng ch\xFAng s\u1EBD h\u1EEFu \xEDch cho trang tr\u1EA1i
+      c\u1EE7a b\u1EA1n!"
 --- !u!1 &1291687868
 GameObject:
   m_ObjectHideFlags: 0

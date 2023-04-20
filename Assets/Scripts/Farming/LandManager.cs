@@ -32,7 +32,7 @@ public class LandManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void OnEnable()
+    public void OnEnable()
     {
         RegisterLandPlots();
         StartCoroutine(LoadFarmData());
@@ -52,6 +52,11 @@ public class LandManager : MonoBehaviour
             //New game
             GetComponent<ObstacleGenerator>().GenerateObstacles(landPlots);
         }
+    }
+
+    public void SaveLandAndCropData() {
+        //Save the Instance variables over to the static variable
+        farmData = new Tuple<List<LandSaveState>, List<CropSaveState>>(landData, cropData);
     }
 
     private void OnDestroy()
@@ -151,10 +156,4 @@ public class LandManager : MonoBehaviour
         }
     }
     #endregion
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
