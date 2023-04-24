@@ -11,12 +11,11 @@ public class Bed : MonoBehaviour
     {
         string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sleepKey");
         UIManager.Instance.TriggerYesNoPrompt(text, GameStateManager.Instance.Sleep);
-        //panel.SetActive(true);
     }
-/*    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         panel.SetActive(false);
-    }*/
+    }
 
     public void TestSave() {
          string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sleepKey");
