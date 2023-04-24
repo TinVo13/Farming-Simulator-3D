@@ -3765,15 +3765,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4855482481870606416, guid: 2110d82e111df4b43b7dcc477c80ec50, type: 3}
       propertyPath: m_UiScaleMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4855482481870606416, guid: 2110d82e111df4b43b7dcc477c80ec50, type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 1920
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 4855482481870606416, guid: 2110d82e111df4b43b7dcc477c80ec50, type: 3}
       propertyPath: m_ReferenceResolution.y
-      value: 1080
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 4889244014050202490, guid: 2110d82e111df4b43b7dcc477c80ec50, type: 3}
       propertyPath: m_Layer
@@ -4872,10 +4872,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1600, y: 900}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
