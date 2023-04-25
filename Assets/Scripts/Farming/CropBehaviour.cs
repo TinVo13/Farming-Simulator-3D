@@ -31,7 +31,7 @@ public class CropBehaviour : MonoBehaviour
 
     int health;
     //The crop can stay alive for 2 hours without water before it dies
-    int maxHealth = GameTimestamp.HoursToMinutes(2);
+    int maxHealth = GameTimestamp.HoursToMinutes(48);
 
 
     public enum CropState

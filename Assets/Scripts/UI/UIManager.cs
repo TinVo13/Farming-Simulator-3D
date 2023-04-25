@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
+
 
 public class UIManager : MonoBehaviour, ITimeTracker
 {
@@ -55,6 +57,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Yes No Prompt")]
     public YesNoPrompt yesNoPrompt;
     public YesNoPromptCustom yesNoPromptCustom;
+    public InfomationConfirm confirm;
 
     [Header("Player Stats")]
     public Text moneyText;
@@ -92,13 +95,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
         RenderPlayerStats();
         DisplayItemInfo(null);
 
-        // TimeManager.Instance.RegisterTracker(this);
-    }
-
-    void FixedUpdate()
-    {
-        GameTimestamp timestampOfNextDay = TimeManager.Instance.GetGameTimestamp();
-         ClockUpdate(timestampOfNextDay);
+        TimeManager.Instance.RegisterTracker(this);
     }
 
     public void SaveData()
@@ -109,8 +106,19 @@ public class UIManager : MonoBehaviour, ITimeTracker
         // TimeManager.Instance.Tick();
         // TimeManager.Instance.UpdateTime();
         // SaveManager.Save(GameStateManager.Instance.ExportSaveState());
-        LandManager.Instance.SaveLandAndCropData();
-        GameStateManager.Instance.SaveGame();
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "SaveTrueKey");
+        if(SceneTransitionManager.Instance.currentLocation != SceneTransitionManager.Location.Farm) 
+        {
+            GameStateManager.Instance.SaveGame();
+            TriggerConfirm(text);
+        }
+        else 
+        {
+            LandManager.Instance.SaveLandAndCropData();
+            GameStateManager.Instance.SaveGame();
+            TriggerConfirm(text);
+        }
+
     }
 
 
@@ -123,6 +131,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
         yesNoPrompt.gameObject.SetActive(true);
 
         yesNoPrompt.CreatePrompt(message, onYesCallback);
+
+        StartCoroutine(DisableAfterDelay(5.0f));
     }
 
     public void TriggerYesNoPromptCustom(string message, System.Action onYesCallback)
@@ -131,6 +141,25 @@ public class UIManager : MonoBehaviour, ITimeTracker
         yesNoPromptCustom.gameObject.SetActive(true);
 
         yesNoPromptCustom.CreatePrompt(message, onYesCallback);
+
+        StartCoroutine(DisableAfterDelay(5.0f));
+    }
+
+    public void TriggerConfirm(string message)
+    {
+        //Set active the gameObject of the Yes No Prompt
+        confirm.gameObject.SetActive(true);
+
+        confirm.CreatePrompt(message);
+
+        StartCoroutine(DisableAfterDelay(5.0f));
+    }
+
+     IEnumerator DisableAfterDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+        confirm.gameObject.SetActive(false);
+        yesNoPromptCustom.gameObject.SetActive(false);
+        yesNoPrompt.gameObject.SetActive(false);
     }
 
     #region Tab Management
@@ -184,8 +213,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     //Reset the fadein fadeout screens to their default positions
     public void ResetFadeDeafaults()
-    {
-        
+    {  
         fadeOut.SetActive(false);
         fadeIn.SetActive(false);
     }

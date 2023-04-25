@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject panel;
 
+    [Header("Yes No Prompt")]
+    public YesNoPromptCustom yesNoPromptCustom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +53,17 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "ExitGameKey");
+
+        TriggerYesNoPromptCustom(text, QuitGameOption);
+    }
+
+    void QuitGameOption() 
+    {
         Application.Quit();
     }
+
+
 
     IEnumerator LoadGameAsync(SceneTransitionManager.Location scene, Action onFirstFrameLoad)
     {
@@ -76,5 +88,20 @@ public class MainMenu : MonoBehaviour
     public void MoveToStartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void TriggerYesNoPromptCustom(string message, System.Action onYesCallback)
+    {
+        //Set active the gameObject of the Yes No Prompt
+        yesNoPromptCustom.gameObject.SetActive(true);
+
+        yesNoPromptCustom.CreatePrompt(message, onYesCallback);
+
+        StartCoroutine(DisableAfterDelay(5.0f));
+    }
+
+    IEnumerator DisableAfterDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+        yesNoPromptCustom.gameObject.SetActive(false);
     }
 }

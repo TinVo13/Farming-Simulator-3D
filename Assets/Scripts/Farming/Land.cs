@@ -50,6 +50,8 @@ public class Land : MonoBehaviour, ITimeTracker
         // Material materialToSwitch = soilMat;
         // //Get the renderer to apply the changes
         // renderer.material = materialToSwitch;
+
+        //Set the land to soil by default
  
 
         //Deselect the land by default
@@ -287,7 +289,7 @@ public class Land : MonoBehaviour, ITimeTracker
             {
                 SwitchLandStatus(LandStatus.Farmland);
             }*/
-            if (hoursElapsed > 48)
+            if (hoursElapsed > 1)
             {
                 //Dry up (Switch back to farmland)
                 SwitchLandStatus(LandStatus.Farmland);

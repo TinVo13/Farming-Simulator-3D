@@ -25,7 +25,7 @@ public struct LandSaveState
             int hoursElapsed = GameTimestamp.CompareTimestamps(lastWatered, timestamp);
             Debug.Log(hoursElapsed + " hour a since this was watered");
 
-            if (hoursElapsed > 48)
+            if (hoursElapsed > 1)
             {
                 //Dry up (Switch back to farmland)
                 landStatus = Land.LandStatus.Farmland;

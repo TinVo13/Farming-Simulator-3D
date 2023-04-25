@@ -31,7 +31,7 @@ public struct CropSaveState
         SeedData seedInfo =  (SeedData) InventoryManager.Instance.itemIndex.GetItemFromString(seedToGrow);
         //Get the maxHealth and maxGrowth from the seed data
         int maxGrowth = GameTimestamp.HoursToMinutes(seedInfo.hoursToGrow);
-        int maxHealth = GameTimestamp.HoursToMinutes(2);
+        int maxHealth = GameTimestamp.HoursToMinutes(48);
 
         //Restore the health of the plant when it is watered
         if (health < maxHealth)

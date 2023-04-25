@@ -160,48 +160,16 @@ MonoBehaviour:
     m_Localized: With price
     m_Metadata:
       m_Items: []
-  - m_Id: 11175307733536768
-    m_Localized: Spring
+  - m_Id: 12996405177520128
+    m_Localized: "\rIt's still early!, you have to go to bed at 6pm today!?"
     m_Metadata:
       m_Items: []
-  - m_Id: 11175322572984320
-    m_Localized: Summer
+  - m_Id: 12990103609053184
+    m_Localized: data successfully save
     m_Metadata:
       m_Items: []
-  - m_Id: 11175324959543296
-    m_Localized: Fall
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175326867951616
-    m_Localized: Winter
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175330978369536
-    m_Localized: Monday
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175332689645568
-    m_Localized: Tuesday
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175334585470976
-    m_Localized: Wednesday
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175336682622976
-    m_Localized: Thursday
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175338762997760
-    m_Localized: Friday
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175343829716992
-    m_Localized: Sunday
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11175341787090944
-    m_Localized: Saturday
+  - m_Id: 13001264178040832
+    m_Localized: You want exit game?
     m_Metadata:
       m_Items: []
   references:

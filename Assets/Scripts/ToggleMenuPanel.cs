@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class ToggleMenuPanel : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class ToggleMenuPanel : MonoBehaviour
     }
 
     public void Quit()
+    {
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "ExitGameKey");
+
+        UIManager.Instance.TriggerYesNoPromptCustom(text, QuitGameOption);
+    }
+
+    void QuitGameOption() 
     {
         Application.Quit();
     }
