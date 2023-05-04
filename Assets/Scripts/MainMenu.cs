@@ -11,6 +11,10 @@ public class MainMenu : MonoBehaviour
     public Button loadGameButton;
     [SerializeField]
     private GameObject panel;
+    [SerializeField]
+    private GameObject loadingScene;
+    [SerializeField]
+    private Slider loadingBar;
 
     [Header("Yes No Prompt")]
     public YesNoPromptCustom yesNoPromptCustom;
@@ -67,10 +71,12 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadGameAsync(SceneTransitionManager.Location scene, Action onFirstFrameLoad)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene.ToString());
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene.ToString(),LoadSceneMode.Single);
+        loadingScene.SetActive(true);
         DontDestroyOnLoad(gameObject);
         while (!asyncLoad.isDone)
         {
+            loadingBar.value = asyncLoad.progress;
             yield return null;
             Debug.Log("Loading!");
         }
