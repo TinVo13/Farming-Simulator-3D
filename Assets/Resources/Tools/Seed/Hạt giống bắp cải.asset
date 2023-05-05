@@ -17,6 +17,7 @@ MonoBehaviour:
   thumbnail: {fileID: -1608940185, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
   gameModel: {fileID: 0}
   cost: 10000
+  purchasePrice: 5000
   hoursToGrow: 2
   cropToYield: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
   seedling: {fileID: 2999421618381449331, guid: 3e039732079110844b85e017f502c398, type: 3}

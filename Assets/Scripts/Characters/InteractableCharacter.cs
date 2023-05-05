@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class InteractableCharacter : InteractableObject
 {
@@ -150,17 +151,21 @@ public class InteractableCharacter : InteractableObject
 
     bool EligibleForGift()
     {
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "FirstMettingKey");
         if (RelationshipStats.FirstMeeting(characterData))
         {
             DialogueManager.Instance.StartDialogue
-                (DialogueManager.CreateSimpleMessage("You have not unlocked this character yet. "));
+                (DialogueManager.CreateSimpleMessage(text));
             return false;
         }
+
+        string textTodayGiven = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "TodayGivenKey");
+        string textGift = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "GiftKey");
 
         if (RelationshipStats.GiftGivenToday(characterData))
         {
             DialogueManager.Instance.StartDialogue
-                (DialogueManager.CreateSimpleMessage($"You have already given {characterData.name} a gift today. "));
+                (DialogueManager.CreateSimpleMessage(textTodayGiven + $" {characterData.name} " + textGift ));
             return false;
         }
 

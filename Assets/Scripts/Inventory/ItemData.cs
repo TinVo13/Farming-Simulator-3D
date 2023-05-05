@@ -12,4 +12,6 @@ public class ItemData : ScriptableObject
     public GameObject gameModel;
 
     public int cost;
+
+    public int purchasePrice;
 }

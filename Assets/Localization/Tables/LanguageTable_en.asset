@@ -172,6 +172,18 @@ MonoBehaviour:
     m_Localized: You want exit game?
     m_Metadata:
       m_Items: []
+  - m_Id: 15230925666684928
+    m_Localized: You have not unlocked this character yet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15231528878903296
+    m_Localized: You have already given
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15231546000052224
+    m_Localized: 'a gift today. '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

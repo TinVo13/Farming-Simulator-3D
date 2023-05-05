@@ -16,7 +16,7 @@ public class ShopListing : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         this.itemData = itemData;
         itemThumbnail.sprite = itemData.thumbnail;
         nameText.text = itemData.name;
-        costText.text = itemData.cost + PlayerStats.CURRENCY;
+        costText.text = itemData.purchasePrice + PlayerStats.CURRENCY;
     }
 
     public void OnPointerClick(PointerEventData eventData)

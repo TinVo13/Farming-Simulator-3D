@@ -33,13 +33,15 @@ public class ShopListingManager : ListingManager<ItemData>
     {
         confirmationScreen.SetActive(true);
 
-        confirmationPrompt.text = $"Buy {itemToBuy.name}?";
+        confirmationPrompt.text = $"Mua {itemToBuy.name}?";
 
         quantityText.text = "x" + quantity;
 
-        int cost = itemToBuy.cost * quantity;
+        // int cost = itemToBuy.cost * quantity;
+        int purchasePrice = itemToBuy.purchasePrice * quantity;
 
-        int playerMoneyLeft = PlayerStats.money - cost;
+        // int playerMoneyLeft = PlayerStats.money - cost;
+        int playerMoneyLeft = PlayerStats.money - purchasePrice;
 
         if(playerMoneyLeft < 0)
         {

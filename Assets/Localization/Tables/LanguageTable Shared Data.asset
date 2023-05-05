@@ -167,6 +167,18 @@ MonoBehaviour:
     m_Key: ExitGameKey
     m_Metadata:
       m_Items: []
+  - m_Id: 15230925666684928
+    m_Key: FirstMettingKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15231528878903296
+    m_Key: TodayGivenKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15231546000052224
+    m_Key: GiftKey
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
