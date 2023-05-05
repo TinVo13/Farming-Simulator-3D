@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneTransitionManager : MonoBehaviour
 {
@@ -71,7 +72,7 @@ public class SceneTransitionManager : MonoBehaviour
         //Reset the boolean
         screenFadeOut = false;
         UIManager.Instance.ResetFadeDeafaults();
-        SceneManager.LoadScene(locationToSwitch.ToString());
+        SceneManager.LoadScene(locationToSwitch.ToString(),LoadSceneMode.Single);
     }
 
     //Call when the screen has faded out
