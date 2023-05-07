@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 public class ShopListingManager : ListingManager<ItemData>
 {
@@ -43,9 +44,12 @@ public class ShopListingManager : ListingManager<ItemData>
         // int playerMoneyLeft = PlayerStats.money - cost;
         int playerMoneyLeft = PlayerStats.money - purchasePrice;
 
+        string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "EnoughKey");
+
         if(playerMoneyLeft < 0)
         {
-            costCalculationText.text = "Insufficient funds.";
+            // costCalculationText.text = "Insufficient funds.";
+            costCalculationText.text = text;
             purchaseButton.interactable = false;
             return;
         }

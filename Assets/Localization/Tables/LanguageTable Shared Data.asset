@@ -167,25 +167,28 @@ MonoBehaviour:
     m_Key: ExitGameKey
     m_Metadata:
       m_Items: []
-<<<<<<< HEAD
-  - m_Id: 15230925666684928
-    m_Key: FirstMettingKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15231528878903296
-    m_Key: TodayGivenKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15231546000052224
-    m_Key: GiftKey
-=======
   - m_Id: 15614489012461568
     m_Key: welcomeBackKey
     m_Metadata:
       m_Items: []
   - m_Id: 15644789623263232
     m_Key: loadingKey
->>>>>>> c8b4535df1241a471a93973b191df5bcbaaa28b6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16765780246302720
+    m_Key: FirstMettingKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16766779119800320
+    m_Key: TodayGivenKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16766906790219776
+    m_Key: GiftKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16770919434719232
+    m_Key: EnoughKey
     m_Metadata:
       m_Items: []
   m_Metadata:

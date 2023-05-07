@@ -14,7 +14,7 @@ public class SceneTransitionManager : MonoBehaviour
     public Location currentLocation;
 
     //list of all the place that are to be considered indoor
-    static readonly Location[] indoor = { Location.Farm };
+    static readonly Location[] indoor = { Location.PlayerHome };
 
     //The player's transform
     Transform playerPoint;

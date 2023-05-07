@@ -172,25 +172,28 @@ MonoBehaviour:
     m_Localized: You want exit game?
     m_Metadata:
       m_Items: []
-<<<<<<< HEAD
-  - m_Id: 15230925666684928
-    m_Localized: You have not unlocked this character yet.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15231528878903296
-    m_Localized: You have already given
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15231546000052224
-    m_Localized: 'a gift today. '
-=======
   - m_Id: 15614489012461568
     m_Localized: Welcome back!
     m_Metadata:
       m_Items: []
   - m_Id: 15644789623263232
     m_Localized: Loading
->>>>>>> c8b4535df1241a471a93973b191df5bcbaaa28b6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16765780246302720
+    m_Localized: You have not unlocked this character yet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16766779119800320
+    m_Localized: You have already given
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16766906790219776
+    m_Localized: a gift today.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16770919434719232
+    m_Localized: Insufficient funds.
     m_Metadata:
       m_Items: []
   references:
