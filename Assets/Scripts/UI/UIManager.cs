@@ -74,8 +74,12 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("OptionBuyOrSell")]
     public GameObject option;
 
+    [SerializeField] public Animator m_animator = null;
+
     private void Awake()
     {
+        if (!m_animator) { gameObject.GetComponent<Animator>(); }
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -374,5 +378,30 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public void OpenBuyOption()
     {
         Shop.Instance.OpenShop();
+    }
+
+    public void Dig() 
+    {
+        m_animator.SetTrigger("Dig");
+    }
+
+    public void SeedSack() 
+    {
+        m_animator.SetTrigger("SeedSack");
+    }
+
+    public void WateringCan() 
+    {
+        m_animator.SetTrigger("WateringCan");
+    }
+
+    public void Harvest() 
+    {
+        m_animator.SetTrigger("Pickup");
+    }
+
+    public void Shovel() 
+    {
+        m_animator.SetTrigger("Shovel");
     }
 }

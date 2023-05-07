@@ -5,8 +5,8 @@ using UnityEngine.Localization.Settings;
 
 public class Bed : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject panel;
+    // [SerializeField]
+    // private GameObject panel;
     private void OnTriggerEnter(Collider other)
     {
         string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sleepKey");
@@ -22,9 +22,9 @@ public class Bed : MonoBehaviour
         }
 
     }
-    private void OnTriggerExit(Collider other)
-    {
-        panel.SetActive(false);
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     panel.SetActive(false);
+    // }
 
 }

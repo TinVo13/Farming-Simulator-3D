@@ -40,8 +40,6 @@ public class Land : MonoBehaviour, ITimeTracker
 
     GameObject obstacleObject;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -201,11 +199,13 @@ public class Land : MonoBehaviour, ITimeTracker
             {
              
                 case EquipmentData.ToolType.Hoe:
+                    UIManager.Instance.Dig();
                     SwitchLandStatus(LandStatus.Farmland);
                     break;
                 case EquipmentData.ToolType.WateringCan:
                     if (landStatus != LandStatus.Soil)
                     {
+                        UIManager.Instance.WateringCan();
                         SwitchLandStatus(LandStatus.Watered);
                     }
                     break;
@@ -214,6 +214,7 @@ public class Land : MonoBehaviour, ITimeTracker
                     if(cropPlanted != null)
                     {
                         /*Destroy(cropPlanted.gameObject);*/
+                        UIManager.Instance.Shovel();
                         cropPlanted.RemoveCrop();
                     }
 
@@ -260,6 +261,8 @@ public class Land : MonoBehaviour, ITimeTracker
 
     public CropBehaviour SpawnCrop()
     {
+        UIManager.Instance.SeedSack();
+
         //Instantiate the crop object parented to the land
         GameObject cropObject = Instantiate(cropPrefab, transform);
         //Move the crop object to the top of the land gameobject

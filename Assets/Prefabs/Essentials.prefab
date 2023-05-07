@@ -11850,7 +11850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd45eab65b7eac4f898a7ef5e0cd106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetZ: 3
+  offsetZ: 4
   smoothing: 2
 --- !u!124 &5789732691439737900
 Behaviour:
@@ -13078,6 +13078,7 @@ GameObject:
   - component: {fileID: 5839529919632341921}
   - component: {fileID: 4659180329283615752}
   - component: {fileID: 1310605613134200638}
+  - component: {fileID: 7958227121942043650}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -13180,11 +13181,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5791165219834375261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba158ff05cf30224f94bfdddec8e7635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDemo: 0
   m_joystick: {fileID: 2261346118706423927}
   m_moveSpeed: 4
   m_turnSpeed: 200
@@ -13213,6 +13215,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.51, y: 0.98, z: 0.23}
   m_Center: {x: 0, y: 0.53, z: 0}
+--- !u!114 &7958227121942043650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791165219834375261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276e32dddf7da264a807849af0f4dd95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeDemo: 0
+  m_joystick: {fileID: 2261346118706423927}
+  m_moveSpeed: 4
+  m_turnSpeed: 200
+  m_jumpForce: 4
+  m_animator: {fileID: 5839529919632341921}
+  m_rigidBody: {fileID: 5808264982655245573}
+  m_controlMode: 1
 --- !u!1 &5791349515843788217
 GameObject:
   m_ObjectHideFlags: 0
@@ -15370,6 +15392,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1994247045235196214}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: CheckIfEquipped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7927423612424325937}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: Harvest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1994247045235196214}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: ItemInteract
         m_Mode: 1
         m_Arguments:
@@ -15678,6 +15724,7 @@ MonoBehaviour:
   relationshipListingManager: {fileID: 1181359182000578284}
   exitButton: {fileID: 4807103135388643542}
   option: {fileID: 3577157996671524317}
+  m_animator: {fileID: 5839529919632341921}
 --- !u!114 &7927423612424325936
 MonoBehaviour:
   m_ObjectHideFlags: 0

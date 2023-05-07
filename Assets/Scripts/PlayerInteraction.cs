@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public static PlayerInteraction Instance { get; private set; }
+
     SimpleSampleCharacterControl simpleSampleCharacterControl;
 
     Land selectLand = null;
@@ -107,20 +109,23 @@ public class PlayerInteraction : MonoBehaviour
     //Triggered when the player presses the item interact button
     public void ItemInteract()
     {
-        //if the player is holding something, keep it in his inventory
-        if(InventoryManager.Instance.SlotEquipped(InventorySlot.InventoryType.Item))
-        {
-            InventoryManager.Instance.HandToInventory(InventorySlot.InventoryType.Item);
-            return;
-        }
 
         //if the player isn't holding anything, pick up an item
-
         //Check if there is an interactable selected
         if (selectedInteractable != null)
         {
             //Pick it up
             selectedInteractable.PickUp();
+        }
+    }
+
+    public void CheckIfEquipped() 
+    {
+        //if the player is holding something, keep it in his inventory
+        if(InventoryManager.Instance.SlotEquipped(InventorySlot.InventoryType.Item))
+        {
+            InventoryManager.Instance.HandToInventory(InventorySlot.InventoryType.Item);
+            return;
         }
     }
 }

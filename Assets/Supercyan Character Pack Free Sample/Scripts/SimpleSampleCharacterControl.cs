@@ -16,12 +16,17 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         Direct
     }
 
+    public static SimpleSampleCharacterControl Instance { get; private set; }
+    InteractableObject selectedInteractable = null;
+    public bool activeDemo = false;
+
     [SerializeField] private FloatingJoystick m_joystick;
     [SerializeField] private float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
 
-    [SerializeField] private Animator m_animator = null;
+    // [SerializeField] private Animator m_animator = null;
+    [SerializeField] public Animator m_animator = null;
     [SerializeField] private Rigidbody m_rigidBody = null;
 
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
@@ -256,5 +261,11 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_animator.SetTrigger("Jump");
         }
+    }
+
+    public void Harvest() 
+    {
+        m_animator.SetTrigger("Pickup");
+        // m_animator.SetTrigger("JumpTest");
     }
 }
