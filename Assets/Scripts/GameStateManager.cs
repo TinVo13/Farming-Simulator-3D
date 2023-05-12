@@ -71,12 +71,8 @@ public class GameStateManager : MonoBehaviour, ITimeTracker
             List<LandSaveState> landData = LandManager.farmData?.Item1;
             List<CropSaveState> cropData = LandManager.farmData?.Item2;
 
-            Debug.Log(landData.Count);
-
             //If there are no crops planted, we don't need to worry abour updating anything
             if (cropData.Count == 0) return;
-
-            Debug.Log(cropData.Count);
 
             for (int i = 0; i < cropData.Count; i++)
             {

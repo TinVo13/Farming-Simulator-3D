@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
-
+using UnityEditor;
 
 public class UIManager : MonoBehaviour, ITimeTracker
 {
@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     [Header("Screen Management")]
     public GameObject menuScreen;
+
+    private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
 
     //Check if the screen has finished fading out
     bool screenFadeOut;
@@ -74,11 +76,13 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("OptionBuyOrSell")]
     public GameObject option;
 
-    [SerializeField] public Animator m_animator = null;
+    [SerializeField] public Animator m_animatorMale = null;
+    [SerializeField] public Animator m_animatorFeMale = null;
 
     private void Awake()
     {
-        if (!m_animator) { gameObject.GetComponent<Animator>(); }
+        if (!m_animatorMale) { gameObject.GetComponent<Animator>(); }
+        if (!m_animatorFeMale) { gameObject.GetComponent<Animator>(); }
 
         if (Instance != null && Instance != this)
         {
@@ -116,7 +120,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
             GameStateManager.Instance.SaveGame();
             TriggerConfirm(text);
         }
-        else 
+        else
         {
             LandManager.Instance.SaveLandAndCropData();
             GameStateManager.Instance.SaveGame();
@@ -382,26 +386,57 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public void Dig() 
     {
-        m_animator.SetTrigger("Dig");
+        m_animatorMale.SetTrigger("Dig");
     }
 
     public void SeedSack() 
     {
-        m_animator.SetTrigger("SeedSack");
+        m_animatorMale.SetTrigger("SeedSack");
     }
 
     public void WateringCan() 
     {
-        m_animator.SetTrigger("WateringCan");
+        m_animatorMale.SetTrigger("WateringCan");
     }
 
     public void Harvest() 
     {
-        m_animator.SetTrigger("Pickup");
+        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+
+        GameObject male = rootPrefab.transform.Find("Player").gameObject;
+
+        if(male.activeSelf) 
+        {
+            m_animatorMale.SetTrigger("Pickup");
+        }
+        else
+        {
+            m_animatorFeMale.SetTrigger("Pickup");
+        }
     }
 
     public void Shovel() 
     {
-        m_animator.SetTrigger("Shovel");
+        m_animatorMale.SetTrigger("Shovel");
+    }
+
+    public void DigFemale() 
+    {
+        m_animatorFeMale.SetTrigger("Dig");
+    }
+
+    public void SeedSackFemale() 
+    {
+        m_animatorFeMale.SetTrigger("SeedSack");
+    }
+
+    public void WateringCanFemale() 
+    {
+        m_animatorFeMale.SetTrigger("WateringCan");
+    }
+
+    public void ShovelFemale() 
+    {
+        m_animatorFeMale.SetTrigger("Shovel");
     }
 }

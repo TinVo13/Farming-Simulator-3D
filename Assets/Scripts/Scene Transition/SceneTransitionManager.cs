@@ -10,7 +10,7 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager Instance;
 
-    public enum Location { Farm, PlayerHome, Village }
+    public enum Location { Farm, PlayerHome, Village, InfomationPlayer }
     public Location currentLocation;
 
     //list of all the place that are to be considered indoor
@@ -42,7 +42,8 @@ public class SceneTransitionManager : MonoBehaviour
         SceneManager.sceneLoaded += OnLocationLoad;
 
         //Find the player's transform
-        playerPoint = FindObjectOfType<SimpleSampleCharacterControl>().transform;
+        // playerPoint = FindObjectOfType<SimpleSampleCharacterControl>().transform;
+        playerPoint = FindObjectOfType<PlayerControllerDemo>().transform;
     }
     //check if the current location indoor
     public bool CurrentlyIndoor()

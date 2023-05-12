@@ -12,6 +12,7 @@ TagManager:
   - InventoryButton
   - Buy
   - UI
+  - TextPlayerName
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - Item
   - Player
-  - 
+  - PlayerFemale
   - 
   - 
   - 

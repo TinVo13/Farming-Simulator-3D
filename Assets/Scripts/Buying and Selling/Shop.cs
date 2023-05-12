@@ -34,7 +34,8 @@ public class Shop : MonoBehaviour
 
     public static void Purchase(ItemData item, int quantity)
     {
-        int totalCost = item.cost * quantity;
+        // int totalCost = item.cost * quantity;
+        int totalCost = item.purchasePrice * quantity;
 
         if (PlayerStats.money >= totalCost)
         {

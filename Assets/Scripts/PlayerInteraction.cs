@@ -8,7 +8,8 @@ public class PlayerInteraction : MonoBehaviour
 {
     public static PlayerInteraction Instance { get; private set; }
 
-    SimpleSampleCharacterControl simpleSampleCharacterControl;
+    // SimpleSampleCharacterControl simpleSampleCharacterControl;
+    PlayerControllerDemo playerControllerDemo;
 
     Land selectLand = null;
 
@@ -25,7 +26,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         btnHarvestable.SetActive(false);
         //Get access to our PlayerController component
-        simpleSampleCharacterControl = transform.parent.GetComponent<SimpleSampleCharacterControl>();
+        // simpleSampleCharacterControl = transform.parent.GetComponent<SimpleSampleCharacterControl>();
+        playerControllerDemo = transform.parent.GetComponent<PlayerControllerDemo>();
     }
 
     // Update is called once per frame

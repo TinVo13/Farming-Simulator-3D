@@ -196,6 +196,39 @@ MonoBehaviour:
     m_Localized: Insufficient funds.
     m_Metadata:
       m_Items: []
+  - m_Id: 18504314829312000
+    m_Localized: "\rDo you want to play new games? Note that when clicking agree,
+      the game will delete the current data!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18754997906214912
+    m_Localized: Choose Player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18804557420597248
+    m_Localized: Female
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18850780236124160
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18858850228015104
+    m_Localized: "\rName cannot be blank!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18858850454507520
+    m_Localized: "\rYou are choosing male character!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18858910714073088
+    m_Localized: You are choosing female character!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18859118852214784
+    m_Localized: "\rNaming success!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

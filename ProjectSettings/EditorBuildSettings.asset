@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 605dcea804e932e44861e4bc96cf97d4
   - enabled: 1
+    path: Assets/Scenes/InfomationPlayer.unity
+    guid: 1d71659fcae069b4aa1161717c538c09
+  - enabled: 1
     path: Assets/Scenes/Farm.unity
     guid: dd82ff8bdfeacbb4c92167e721e0556e
   - enabled: 1

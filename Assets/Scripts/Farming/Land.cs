@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEditor;
+using UnityEngine.UI;
 
 public class Land : MonoBehaviour, ITimeTracker
 {
@@ -40,6 +42,8 @@ public class Land : MonoBehaviour, ITimeTracker
 
     GameObject obstacleObject;
 
+    private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +54,6 @@ public class Land : MonoBehaviour, ITimeTracker
         // renderer.material = materialToSwitch;
 
         //Set the land to soil by default
- 
 
         //Deselect the land by default
         Select(false);
@@ -177,6 +180,9 @@ public class Land : MonoBehaviour, ITimeTracker
     //when the player press the interact button while selecting this land
     public void Interact()
     {
+        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject male = rootPrefab.transform.Find("Player").gameObject;
+
         //Check the player's tool slot
         ItemData toolSlot = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Tool);
 
@@ -199,13 +205,27 @@ public class Land : MonoBehaviour, ITimeTracker
             {
              
                 case EquipmentData.ToolType.Hoe:
-                    UIManager.Instance.Dig();
+                    if(male.activeSelf) 
+                    {
+                        UIManager.Instance.Dig();
+                    }
+                    else
+                    {
+                        UIManager.Instance.DigFemale();
+                    }
                     SwitchLandStatus(LandStatus.Farmland);
                     break;
                 case EquipmentData.ToolType.WateringCan:
                     if (landStatus != LandStatus.Soil)
                     {
-                        UIManager.Instance.WateringCan();
+                        if(male.activeSelf) 
+                        {
+                            UIManager.Instance.WateringCan();
+                        }
+                        else
+                        {
+                            UIManager.Instance.WateringCanFemale();
+                        }
                         SwitchLandStatus(LandStatus.Watered);
                     }
                     break;
@@ -214,7 +234,14 @@ public class Land : MonoBehaviour, ITimeTracker
                     if(cropPlanted != null)
                     {
                         /*Destroy(cropPlanted.gameObject);*/
-                        UIManager.Instance.Shovel();
+                        if(male.activeSelf) 
+                        {
+                            UIManager.Instance.Shovel();
+                        }
+                        else
+                        {
+                            UIManager.Instance.ShovelFemale();
+                        }
                         cropPlanted.RemoveCrop();
                     }
 
@@ -261,7 +288,17 @@ public class Land : MonoBehaviour, ITimeTracker
 
     public CropBehaviour SpawnCrop()
     {
-        UIManager.Instance.SeedSack();
+        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject male = rootPrefab.transform.Find("Player").gameObject;
+
+        if(male.activeSelf) 
+        {
+            UIManager.Instance.SeedSack();
+        }
+        else
+        {
+            UIManager.Instance.SeedSackFemale();
+        }
 
         //Instantiate the crop object parented to the land
         GameObject cropObject = Instantiate(cropPrefab, transform);

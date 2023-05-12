@@ -16,6 +16,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Slider loadingBar;
 
+    [SerializeField]
+    private GameObject panelWelcome;
+
     [Header("Yes No Prompt")]
     public YesNoPromptCustom yesNoPromptCustom;
 
@@ -23,22 +26,50 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         string playerName = PlayerPrefs.GetString("PlayerName");
-        if (string.IsNullOrEmpty(playerName))
-        {
-            panel.SetActive(true);
-        }
+        // if (string.IsNullOrEmpty(playerName))
+        // {
+        //     panel.SetActive(true);
+        // }
         loadGameButton.interactable = SaveManager.HasSave();
+        if(loadGameButton.interactable == false || playerName == "") 
+        {
+            panelWelcome.SetActive(false);
+        }
+        else 
+        {
+            panelWelcome.SetActive(true);
+        }
     }
 
     public void NewGame()
     {
         /*SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);*/
         /*  SceneManager.LoadScene(SceneTransitionManager.Location.PlayerHome.ToString());*/
-        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.PlayerHome, null));
+        if(loadGameButton.interactable) 
+        {
+            string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "DeleteDataKey");
+
+             TriggerYesNoPromptCustom(text, NewGameAsk);
+        } 
+        else 
+        {
+            // StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.Farm, null));
+            StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.InfomationPlayer, null));
+        }
     }
+
+    void NewGameAsk() 
+    {
+        SaveManager.DeleteDataWhenNewGame();
+        PlayerPrefs.SetString("PlayerName", "");
+        PlayerPrefs.Save();
+        // StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.Farm, null));
+        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.InfomationPlayer, null));
+    }
+
     public void Continue()
     {
-        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.PlayerHome, LoadGame));
+        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.Farm, LoadGame));
     }
     public void Setting()
     {

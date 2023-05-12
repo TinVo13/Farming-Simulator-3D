@@ -210,8 +210,8 @@ public class InventoryManager : MonoBehaviour
 
         if (SlotEquipped(InventorySlot.InventoryType.Item))
         {
-            //Instantiate the game model on the player's hand and put it on the scene
-            Instantiate(GetEquippedSlotItem(InventorySlot.InventoryType.Item).gameModel, new Vector3(transform.position.x, 22.357f, transform.position.z), quaternion.identity);
+            //Instantiate the game model on the player's hand and put it on the scene 22.357f
+            Instantiate(GetEquippedSlotItem(InventorySlot.InventoryType.Item).gameModel, new Vector3(transform.position.x, 1000.357f, transform.position.z), quaternion.identity);
         }
 
     }

@@ -7,6 +7,7 @@ public class SetPlayerName : MonoBehaviour
 {
     [SerializeField]
     private Text text;
+
     private void Start()
     {
         SetName();

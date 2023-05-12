@@ -33,7 +33,7 @@ public class InteractableCharacter : InteractableObject
     #region Rotation
     void LookAtPlayer()
     {
-        Transform player = FindObjectOfType<SimpleSampleCharacterControl>().transform;
+        Transform player = FindObjectOfType<PlayerControllerDemo>().transform;
 
         Vector3 dir = player.position - transform.position;
 

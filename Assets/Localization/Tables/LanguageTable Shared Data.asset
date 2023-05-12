@@ -15,180 +15,216 @@ MonoBehaviour:
   m_TableCollectionName: LanguageTable
   m_TableCollectionNameGuidString: 95786641beb03544ab7ae12595e951de
   m_Entries:
-  - m_Id: 18288513024
-    m_Key: newGameKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 120948297728
-    m_Key: continueKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 179978932224
-    m_Key: settingKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 281367842816
-    m_Key: quitKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1898196537344
-    m_Key: chooseKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1989204545536
-    m_Key: englishKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2072247570432
-    m_Key: vietnamKey
+  - m_Id: 6557166505984
+    m_Key: axeKey
     m_Metadata:
       m_Items: []
   - m_Id: 2157807177728
     m_Key: backKey
     m_Metadata:
       m_Items: []
-  - m_Id: 6203074973696
-    m_Key: harvestKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 6557166505984
-    m_Key: axeKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 6654193340416
-    m_Key: hoeKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 6792987054080
-    m_Key: pickAxeKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7082570190848
-    m_Key: tomatoSeedKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7707068502016
-    m_Key: cabbageSeedKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 8080965537792
-    m_Key: tomatoKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 8162649608192
-    m_Key: cabbageKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 8264147570688
-    m_Key: toolKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 8425875738624
-    m_Key: itemKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 10346099412992
-    m_Key: exitKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16219467190272
-    m_Key: resumeKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16339109711872
-    m_Key: closeKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7609375557718016
-    m_Key: saveKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7618095515734016
-    m_Key: nextKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7619218586767360
-    m_Key: yesKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7619272500350976
-    m_Key: noKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7619315710070784
-    m_Key: confirmKey
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7619461999005696
-    m_Key: cancelKey
+  - m_Id: 7620552216055808
+    m_Key: buyItemKey
     m_Metadata:
       m_Items: []
   - m_Id: 7620038514479104
     m_Key: buyKey
     m_Metadata:
       m_Items: []
-  - m_Id: 7620088946790400
-    m_Key: sellKey
+  - m_Id: 8162649608192
+    m_Key: cabbageKey
     m_Metadata:
       m_Items: []
-  - m_Id: 7620133817454592
-    m_Key: wantKey
+  - m_Id: 7707068502016
+    m_Key: cabbageSeedKey
     m_Metadata:
       m_Items: []
-  - m_Id: 7620552216055808
-    m_Key: buyItemKey
+  - m_Id: 7619461999005696
+    m_Key: cancelKey
     m_Metadata:
       m_Items: []
-  - m_Id: 7626039661727744
-    m_Key: sleepKey
+  - m_Id: 1898196537344
+    m_Key: chooseKey
     m_Metadata:
       m_Items: []
-  - m_Id: 7644246388805632
-    m_Key: playerKey
+  - m_Id: 18754997906214912
+    m_Key: ChoosePlayerKey
     m_Metadata:
       m_Items: []
-  - m_Id: 8376281141252096
-    m_Key: sellKeyss
+  - m_Id: 16339109711872
+    m_Key: closeKey
     m_Metadata:
       m_Items: []
-  - m_Id: 8376411194036224
-    m_Key: sellKeys
+  - m_Id: 7619315710070784
+    m_Key: confirmKey
     m_Metadata:
       m_Items: []
-  - m_Id: 12990103609053184
-    m_Key: SaveTrueKey
+  - m_Id: 120948297728
+    m_Key: continueKey
     m_Metadata:
       m_Items: []
-  - m_Id: 12996405177520128
-    m_Key: SaveFalseKey
+  - m_Id: 18504314829312000
+    m_Key: DeleteDataKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1989204545536
+    m_Key: englishKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16770919434719232
+    m_Key: EnoughKey
     m_Metadata:
       m_Items: []
   - m_Id: 13001264178040832
     m_Key: ExitGameKey
     m_Metadata:
       m_Items: []
-  - m_Id: 15614489012461568
-    m_Key: welcomeBackKey
+  - m_Id: 10346099412992
+    m_Key: exitKey
     m_Metadata:
       m_Items: []
-  - m_Id: 15644789623263232
-    m_Key: loadingKey
+  - m_Id: 18804557420597248
+    m_Key: FemaleKey
     m_Metadata:
       m_Items: []
   - m_Id: 16765780246302720
     m_Key: FirstMettingKey
     m_Metadata:
       m_Items: []
-  - m_Id: 16766779119800320
-    m_Key: TodayGivenKey
-    m_Metadata:
-      m_Items: []
   - m_Id: 16766906790219776
     m_Key: GiftKey
     m_Metadata:
       m_Items: []
-  - m_Id: 16770919434719232
-    m_Key: EnoughKey
+  - m_Id: 6203074973696
+    m_Key: harvestKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654193340416
+    m_Key: hoeKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8425875738624
+    m_Key: itemKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15644789623263232
+    m_Key: loadingKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18858850228015104
+    m_Key: RegexNameKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18858850454507520
+    m_Key: OptionMaleKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18858910714073088
+    m_Key: OptionFemaleKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18859118852214784
+    m_Key: ConfirmNameKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18859190759362560
+    m_Key: New Entry 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18288513024
+    m_Key: newGameKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7618095515734016
+    m_Key: nextKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619272500350976
+    m_Key: noKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6792987054080
+    m_Key: pickAxeKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7644246388805632
+    m_Key: playerKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18850780236124160
+    m_Key: PlayGameKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281367842816
+    m_Key: quitKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16219467190272
+    m_Key: resumeKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12996405177520128
+    m_Key: SaveFalseKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7609375557718016
+    m_Key: saveKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12990103609053184
+    m_Key: SaveTrueKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620088946790400
+    m_Key: sellKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8376411194036224
+    m_Key: sellKeys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8376281141252096
+    m_Key: sellKeyss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179978932224
+    m_Key: settingKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7626039661727744
+    m_Key: sleepKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16766779119800320
+    m_Key: TodayGivenKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8080965537792
+    m_Key: tomatoKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7082570190848
+    m_Key: tomatoSeedKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8264147570688
+    m_Key: toolKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2072247570432
+    m_Key: vietnamKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7620133817454592
+    m_Key: wantKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15614489012461568
+    m_Key: welcomeBackKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7619218586767360
+    m_Key: yesKey
     m_Metadata:
       m_Items: []
   m_Metadata:

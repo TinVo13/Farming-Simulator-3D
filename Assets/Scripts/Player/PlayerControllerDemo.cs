@@ -25,7 +25,7 @@ public class PlayerControllerDemo : MonoBehaviour
     [SerializeField] private float m_jumpForce = 4;
 
     // [SerializeField] private Animator m_animator = null;
-    [SerializeField] public Animator m_animator = null;
+    [SerializeField] private Animator m_animator = null;
     [SerializeField] private Rigidbody m_rigidBody = null;
 
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
