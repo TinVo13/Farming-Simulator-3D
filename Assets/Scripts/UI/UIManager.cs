@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         yesNoPrompt.CreatePrompt(message, onYesCallback);
 
-        StartCoroutine(DisableAfterDelay(5.0f));
+        StartCoroutine(DisableAfterDelay(10.0f));
     }
 
     public void TriggerYesNoPromptCustom(string message, System.Action onYesCallback)
@@ -150,7 +150,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         yesNoPromptCustom.CreatePrompt(message, onYesCallback);
 
-        StartCoroutine(DisableAfterDelay(5.0f));
+        StartCoroutine(DisableAfterDelay(10.0f));
     }
 
     public void TriggerConfirm(string message)
@@ -160,7 +160,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         confirm.CreatePrompt(message);
 
-        StartCoroutine(DisableAfterDelay(5.0f));
+        StartCoroutine(DisableAfterDelay(10.0f));
     }
 
      IEnumerator DisableAfterDelay(float delay) {
@@ -439,4 +439,5 @@ public class UIManager : MonoBehaviour, ITimeTracker
     {
         m_animatorFeMale.SetTrigger("Shovel");
     }
+
 }

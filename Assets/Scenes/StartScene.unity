@@ -2555,7 +2555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: New game
 --- !u!222 &645146599
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3616,7 +3616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Exit
 --- !u!222 &1272000587
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5789,7 +5789,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Continue
 --- !u!222 &1865948524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6174,7 +6174,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Setting
 --- !u!222 &2031208574
 CanvasRenderer:
   m_ObjectHideFlags: 0

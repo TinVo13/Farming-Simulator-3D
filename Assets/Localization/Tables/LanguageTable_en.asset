@@ -229,6 +229,20 @@ MonoBehaviour:
     m_Localized: "\rNaming success!"
     m_Metadata:
       m_Items: []
+  - m_Id: 18859190759362560
+    m_Localized: "\rWould you like some water?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19659014073126912
+    m_Localized: "\rThe number of filled watering cans must not exceed x20!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19659974602297344
+    m_Localized: '
+
+      Get water successfully!'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

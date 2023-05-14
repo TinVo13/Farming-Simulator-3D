@@ -15210,6 +15210,9 @@ MonoBehaviour:
   shopItems:
   - {fileID: 11400000, guid: 05a42b776391fe64eabb676929630790, type: 2}
   - {fileID: 11400000, guid: 1822a13aed70fcb488f6e44b804edddf, type: 2}
+  - {fileID: 11400000, guid: a5d6a3b69723c0a478f028d03357cd20, type: 2}
+  - {fileID: 11400000, guid: ce2a30463f6c9884e923971f5f2416be, type: 2}
+  - {fileID: 11400000, guid: a0e45cb00df5acb4a9050950b5492b10, type: 2}
   dialogueOnShopOpen:
   - speaker: Janie
     message: "\rCh\xE0o m\u1EEBng b\u1EA1n \u0111\u1EBFn v\u1EDBi c\u1EEDa h\xE0ng

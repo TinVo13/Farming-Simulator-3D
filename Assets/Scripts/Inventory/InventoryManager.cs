@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -46,6 +47,15 @@ public class InventoryManager : MonoBehaviour
 
     //The transform for the player to hold items in the scene
     public Transform handPoint;
+
+    [SerializeField] 
+    private GameObject triggerConfirm;
+
+    [SerializeField] 
+    private GameObject joyStick;
+
+    [SerializeField] 
+    private GameObject bag;
 
     public void LoadInventory(ItemSlotData[] toolSlots, ItemSlotData equippedToolSlot, ItemSlotData[] itemSlots, ItemSlotData equippedItemSlot)
     {
@@ -323,6 +333,24 @@ public class InventoryManager : MonoBehaviour
         UIManager.Instance.RenderInventory();
     }
 
+    public void ConsumeItemHandleQuantity(ItemSlotData itemSlot)
+    {
+        if(itemSlot.IsEmpty())
+        {
+            Debug.LogError("There is nothing to consume!");
+            return;
+        }
+
+        for(int i = 0; i < 5; i++) 
+        {
+            //Use up one of the item slots
+             itemSlot.Remove();
+        }
+        //Refresh inventory
+        RenderHand();
+        UIManager.Instance.RenderInventory();
+    }
+
     #region Inventory Slot Validation
     private void OnValidate()
     {
@@ -365,5 +393,44 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CheckQuantityWater()
+    {
+         ItemData item = InventoryManager.Instance.itemIndex.GetItemFromString("Bình tưới nước");
+         string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "QuantityWaterKey");
+         string textSuccess = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "AddQuantityWater");
+         foreach(ItemSlotData itemSlotData in toolSlots)
+         {
+            if(itemSlotData.itemData == item)
+            {
+                if(itemSlotData.quantity > 20) 
+                {
+                    triggerConfirm.SetActive(false);
+                    UIManager.Instance.TriggerConfirm(text);
+                    ConsumeItemHandleQuantity(itemSlotData);
+                    joyStick.SetActive(true);
+                    bag.SetActive(true);
+                }
+                if(equippedToolSlot != null) 
+                {
+                    if((equippedToolSlot.quantity + itemSlotData.quantity) > 20)
+                    {
+                        triggerConfirm.SetActive(false);
+                        UIManager.Instance.TriggerConfirm(text);
+                        ConsumeItemHandleQuantity(itemSlotData);
+                        joyStick.SetActive(true);
+                        bag.SetActive(true);
+                    }
+                }
+                else if(itemSlotData.quantity < 20)
+                {
+                    triggerConfirm.SetActive(false);
+                    UIManager.Instance.TriggerConfirm(textSuccess);
+                    joyStick.SetActive(true);
+                    bag.SetActive(true);
+                }
+            }
+         }
     }
 }

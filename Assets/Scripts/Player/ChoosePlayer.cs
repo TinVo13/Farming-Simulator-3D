@@ -94,7 +94,7 @@ public class ChoosePlayer : MonoBehaviour
 
     public void PlayGame() 
     {
-        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.Farm, null));
+        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.PlayerHome, null));
     }
 
     IEnumerator LoadGameAsync(SceneTransitionManager.Location scene, Action onFirstFrameLoad)
@@ -126,7 +126,7 @@ public class ChoosePlayer : MonoBehaviour
 
         confirm.CreatePrompt(message);
 
-        StartCoroutine(DisableAfterDelay(5.0f));
+        StartCoroutine(DisableAfterDelay(10.0f));
     }
 
     IEnumerator DisableAfterDelay(float delay) {

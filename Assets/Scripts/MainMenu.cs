@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEditor;
 using UnityEngine.Localization.Settings;
 
 public class MainMenu : MonoBehaviour
@@ -21,6 +22,8 @@ public class MainMenu : MonoBehaviour
 
     [Header("Yes No Prompt")]
     public YesNoPromptCustom yesNoPromptCustom;
+
+    private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,11 @@ public class MainMenu : MonoBehaviour
 
     void NewGameAsk() 
     {
+        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject male = rootPrefab.transform.Find("Player").gameObject;
+        GameObject female = rootPrefab.transform.Find("Player Female").gameObject;
+        male.SetActive(true);
+        female.SetActive(false);
         SaveManager.DeleteDataWhenNewGame();
         PlayerPrefs.SetString("PlayerName", "");
         PlayerPrefs.Save();
@@ -69,7 +77,7 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.Farm, LoadGame));
+        StartCoroutine(LoadGameAsync(SceneTransitionManager.Location.PlayerHome, LoadGame));
     }
     public void Setting()
     {
@@ -134,7 +142,7 @@ public class MainMenu : MonoBehaviour
 
         yesNoPromptCustom.CreatePrompt(message, onYesCallback);
 
-        StartCoroutine(DisableAfterDelay(5.0f));
+        StartCoroutine(DisableAfterDelay(10.0f));
     }
 
     IEnumerator DisableAfterDelay(float delay) {

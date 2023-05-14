@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 492db76d53a5b344e9055515351667ff, type: 3}
-  m_Name: "H\u1EA1t gi\u1ED1ng b\u1EAFp c\u1EA3i"
+  m_Name: "H\u1EA1t gi\u1ED1ng c\xE0 r\u1ED1t"
   m_EditorClassIdentifier: 
   description: " \u0110\xE2y l\xE0 h\u1EA1t gi\u1ED1ng \u0111\u1EC3 tr\u1ED3ng c\xE2y
-    b\u1EAFp c\u1EA3i"
+    c\xE0 r\u1ED1t"
   thumbnail: {fileID: -1608940185, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
   gameModel: {fileID: 0}
-  cost: 10000
-  purchasePrice: 5000
-  hoursToGrow: 2
-  cropToYield: {fileID: 11400000, guid: 3fff48ae84079f749ad41bbc4aa48640, type: 2}
-  seedling: {fileID: 2999421618381449331, guid: 3e039732079110844b85e017f502c398, type: 3}
+  cost: 40000
+  purchasePrice: 10000
+  hoursToGrow: 3
+  cropToYield: {fileID: 11400000, guid: 772884962d2e60c469ac2d14f61e306b, type: 2}
+  seedling: {fileID: 3641896794726487424, guid: 7a8f69240d307264b885eaeddaf9cb0d, type: 3}
   regrowable: 0
   hoursToRegrow: 1

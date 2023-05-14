@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e08103004b0dd44885a23be177d13c, type: 3}
-  m_Name: "B\xED ng\xF4"
+  m_Name: "C\xE2y b\u1EAFp"
   m_EditorClassIdentifier: 
-  description: "\u0110\xE2y l\xE0 b\xED ng\xF4"
-  thumbnail: {fileID: -790397805, guid: 463bb72938a883a4db7d6d35c9c92dba, type: 3}
-  gameModel: {fileID: 9184076707910986096, guid: c286f18ba6c5d1e4e93fa22dcf4511e7, type: 3}
-  cost: 60000
+  description: "\u0110\xE2y l\xE0 c\xE2y b\u1EAFp"
+  thumbnail: {fileID: 1702143127, guid: 463bb72938a883a4db7d6d35c9c92dba, type: 3}
+  gameModel: {fileID: 1000013408786146, guid: 1c9bb744986cee64eb5b5a1661a4decb, type: 3}
+  cost: 8000
   purchasePrice: 0

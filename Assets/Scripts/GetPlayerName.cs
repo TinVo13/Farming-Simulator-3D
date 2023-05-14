@@ -67,7 +67,7 @@ public class GetPlayerName : MonoBehaviour
 
         confirm.CreatePrompt(message);
 
-        StartCoroutine(DisableAfterDelay(5.0f));
+        StartCoroutine(DisableAfterDelay(10.0f));
     }
 
     IEnumerator DisableAfterDelay(float delay) {

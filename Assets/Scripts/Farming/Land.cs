@@ -205,7 +205,7 @@ public class Land : MonoBehaviour, ITimeTracker
             {
              
                 case EquipmentData.ToolType.Hoe:
-                    if(male.activeSelf) 
+                    if(male.activeSelf && landStatus != LandStatus.Farmland) 
                     {
                         UIManager.Instance.Dig();
                     }
@@ -218,13 +218,17 @@ public class Land : MonoBehaviour, ITimeTracker
                 case EquipmentData.ToolType.WateringCan:
                     if (landStatus != LandStatus.Soil)
                     {
-                        if(male.activeSelf) 
+                        if(male.activeSelf && landStatus != LandStatus.Watered) 
                         {
                             UIManager.Instance.WateringCan();
                         }
-                        else
+                        else if(male.activeSelf == false && landStatus != LandStatus.Watered)
                         {
                             UIManager.Instance.WateringCanFemale();
+                        }
+                        if(landStatus != LandStatus.Watered)
+                        {
+                            InventoryManager.Instance.ConsumeItem(InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Tool));
                         }
                         SwitchLandStatus(LandStatus.Watered);
                     }
