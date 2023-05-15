@@ -13,6 +13,7 @@ TagManager:
   - Buy
   - UI
   - TextPlayerName
+  - GameMusic
   layers:
   - Default
   - TransparentFX
