@@ -24,7 +24,7 @@ public class SaveManager : MonoBehaviour
     public static GameSaveState Load()  
     {
         GameSaveState loadedSave = null;
-        // //JSON
+        //JSON
         // if (File.Exists(FILEPATH))
         // {
         //     string json = File.ReadAllText(FILEPATH);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEditor;
+// using UnityEditor;
 using UnityEngine.UI;
 
 public class Land : MonoBehaviour, ITimeTracker
@@ -42,7 +42,8 @@ public class Land : MonoBehaviour, ITimeTracker
 
     GameObject obstacleObject;
 
-    private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
+    // private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";    
+    private string pathToPrefab = "Essentials";
 
     // Start is called before the first frame update
     void Start()
@@ -180,7 +181,8 @@ public class Land : MonoBehaviour, ITimeTracker
     //when the player press the interact button while selecting this land
     public void Interact()
     {
-        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        // GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject rootPrefab = Resources.Load<GameObject>(pathToPrefab);
         GameObject male = rootPrefab.transform.Find("Player").gameObject;
 
         //Check the player's tool slot
@@ -209,7 +211,7 @@ public class Land : MonoBehaviour, ITimeTracker
                     {
                         UIManager.Instance.Dig();
                     }
-                    else
+                    else if(male.activeSelf == false && landStatus != LandStatus.Farmland)
                     {
                         UIManager.Instance.DigFemale();
                     }
@@ -242,7 +244,7 @@ public class Land : MonoBehaviour, ITimeTracker
                         {
                             UIManager.Instance.Shovel();
                         }
-                        else
+                        else if(male.activeSelf == false)
                         {
                             UIManager.Instance.ShovelFemale();
                         }
@@ -292,14 +294,15 @@ public class Land : MonoBehaviour, ITimeTracker
 
     public CropBehaviour SpawnCrop()
     {
-        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        // GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject rootPrefab = Resources.Load<GameObject>(pathToPrefab);
         GameObject male = rootPrefab.transform.Find("Player").gameObject;
 
         if(male.activeSelf) 
         {
             UIManager.Instance.SeedSack();
         }
-        else
+        else if(male.activeSelf == false)
         {
             UIManager.Instance.SeedSackFemale();
         }

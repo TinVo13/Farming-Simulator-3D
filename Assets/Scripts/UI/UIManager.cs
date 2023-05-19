@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
-using UnityEditor;
+// using UnityEditor;
 
 public class UIManager : MonoBehaviour, ITimeTracker
 {
@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
     [Header("Screen Management")]
     public GameObject menuScreen;
 
-    private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
+    // private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
+    private string pathToPrefab = "Essentials";
 
     //Check if the screen has finished fading out
     bool screenFadeOut;
@@ -75,6 +76,14 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     [Header("OptionBuyOrSell")]
     public GameObject option;
+
+    [SerializeField]
+    public GameObject maleInspector;
+    [SerializeField]
+    public PlayerInteraction inspectorMale; 
+    [SerializeField]
+    public PlayerInteraction inspectorFemale; 
+
 
     [SerializeField] public Animator m_animatorMale = null;
     [SerializeField] public Animator m_animatorFeMale = null;
@@ -401,7 +410,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public void Harvest() 
     {
-        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        // GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject rootPrefab = Resources.Load<GameObject>(pathToPrefab);
 
         GameObject male = rootPrefab.transform.Find("Player").gameObject;
 
@@ -409,7 +419,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
         {
             m_animatorMale.SetTrigger("Pickup");
         }
-        else
+        else if(male.activeSelf == false)
         {
             m_animatorFeMale.SetTrigger("Pickup");
         }
@@ -438,6 +448,19 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public void ShovelFemale() 
     {
         m_animatorFeMale.SetTrigger("Shovel");
+    }
+
+    public void CheckOption()
+    {
+
+        if(maleInspector.activeSelf)
+        {
+            inspectorMale.ItemInteract(); 
+        }
+        else 
+        {
+           inspectorFemale.ItemInteract();  
+        }
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
-using UnityEditor;
+// using UnityEditor;
 
 public class GetPlayerName : MonoBehaviour
 {
@@ -17,16 +17,18 @@ public class GetPlayerName : MonoBehaviour
     [SerializeField]
     private GameObject confirmName;
     [SerializeField]
-    private GameObject chossPanel;
+    private GameObject choosePanel;
     [SerializeField]
     private GameObject customOption;
     private Text textPlayerName;
 
-    private string pathToPrefabPlayerNamePanel = "Assets/Prefabs/PlayerNamePanel.prefab";
+    // private string pathToPrefabPlayerNamePanel = "Assets/Prefabs/PlayerNamePanel.prefab";
+    private string pathToPrefabPlayerNamePanel = "PlayerNamePanel";
 
     private void Start() 
     {
-        GameObject rootPrefabPlayerName = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefabPlayerNamePanel);
+        // GameObject rootPrefabPlayerName = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefabPlayerNamePanel);
+        GameObject rootPrefabPlayerName = Resources.Load<GameObject>(pathToPrefabPlayerNamePanel);
         rootPrefabPlayerName.SetActive(true);
 
         GameObject convertText = rootPrefabPlayerName.transform.Find("Player Name Text").gameObject;
@@ -44,7 +46,7 @@ public class GetPlayerName : MonoBehaviour
         {
             InfomationConfirm(textRegex);
             confirmName.SetActive(true);
-            chossPanel.SetActive(false);
+            choosePanel.SetActive(false);
             customOption.SetActive(false);
         }
         else 
@@ -52,7 +54,7 @@ public class GetPlayerName : MonoBehaviour
             string textConfirm = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "ConfirmNameKey");
             InfomationConfirm(textConfirm);
             confirmName.SetActive(false);
-            chossPanel.SetActive(true);
+            choosePanel.SetActive(false);
             customOption.SetActive(true);
             PlayerPrefs.SetString("PlayerName", playerName);
             PlayerPrefs.Save();

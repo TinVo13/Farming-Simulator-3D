@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+// using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
@@ -10,7 +10,8 @@ using UnityEngine.Localization.Settings;
 public class ChoosePlayer : MonoBehaviour
 {
     public GameObject myPrefab;
-    private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
+    // private string pathToPrefab = "Assets/Prefabs/Essentials.prefab";
+    private string pathToPrefab = "Essentials";
 
     [SerializeField]
     private GameObject loadingScene;
@@ -20,12 +21,16 @@ public class ChoosePlayer : MonoBehaviour
     [SerializeField]
     private InfomationConfirm confirm;
 
+    public PrefabSO prefabReplace;
+
+
     public void OnClickUpdatePrefabPlayerFemale()
     {
 
         GameObject newObj = Instantiate(myPrefab);
         Debug.Log(newObj);
-        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        // GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject rootPrefab = Resources.Load<GameObject>(pathToPrefab);
         Debug.Log(rootPrefab);
 
         GameObject female = newObj.transform.Find("Player Female").gameObject;
@@ -37,14 +42,18 @@ public class ChoosePlayer : MonoBehaviour
         {
             female.SetActive(true);
             male.SetActive(false);
+
             newObj.SetActive(true);
-            PrefabUtility.ReplacePrefab(newObj, rootPrefab, ReplacePrefabOptions.ConnectToPrefab);
+             DontDestroyOnLoad(prefabReplace);
+            prefabReplace.ReplacePrefab(newObj);
+
+            // PrefabUtility.ReplacePrefab(newObj, rootPrefab, ReplacePrefabOptions.ConnectToPrefab);
             myPrefab.SetActive(false);
             Debug.Log("Prefab updated successfully!");
         }
         else
         {
-            Debug.LogWarning("female or male not found in prefab.");
+            Debug.Log("female or male not found in prefab.");
         }
 
         Destroy(newObj);
@@ -54,8 +63,10 @@ public class ChoosePlayer : MonoBehaviour
     {
 
         GameObject newObj = Instantiate(myPrefab);
-        Debug.Log(newObj);
-        GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        // Debug.Log(newObj);
+        // GameObject rootPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(pathToPrefab);
+        GameObject rootPrefab = Resources.Load<GameObject>(pathToPrefab);
+   
         Debug.Log(rootPrefab);
 
         GameObject female = newObj.transform.Find("Player Female").gameObject;
@@ -65,16 +76,21 @@ public class ChoosePlayer : MonoBehaviour
 
         if(rootPrefab != null && male != null)
         {
+            // male.hideFlags = HideFlags.None;
+            // female.hideFlags = HideFlags.HideInHierarchy;
             male.SetActive(true);
             female.SetActive(false);
             newObj.SetActive(true);
-            PrefabUtility.ReplacePrefab(newObj, rootPrefab, ReplacePrefabOptions.ConnectToPrefab);
+             DontDestroyOnLoad(prefabReplace);
+            prefabReplace.ReplacePrefab(newObj);
+           
+            // PrefabUtility.ReplacePrefab(newObj, rootPrefab, ReplacePrefabOptions.ConnectToPrefab);
             myPrefab.SetActive(false);
             Debug.Log("Prefab updated successfully!");
         }
         else
         {
-            Debug.LogWarning("female or male not found in prefab.");
+            Debug.Log("female or male not found in prefab.");
         }
 
         Destroy(newObj);
