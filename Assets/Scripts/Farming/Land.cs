@@ -336,7 +336,7 @@ public class Land : MonoBehaviour, ITimeTracker
             {
                 SwitchLandStatus(LandStatus.Farmland);
             }*/
-            if (hoursElapsed > 1)
+            if (hoursElapsed > 24)
             {
                 //Dry up (Switch back to farmland)
                 SwitchLandStatus(LandStatus.Farmland);

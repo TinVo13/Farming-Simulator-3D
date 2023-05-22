@@ -15,6 +15,7 @@ MonoBehaviour:
   description: "Gi\xFAp b\u1EA1n h\u1EE7y v\u1EADt ph\u1EA9m tr\u1ED3ng tr\xEAn \xF4
     \u0111\u1EA5t"
   thumbnail: {fileID: 1633428283, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
-  gameModel: {fileID: 0}
+  gameModel: {fileID: 5061380594161288522, guid: 3dc920c176d167b489bc87bcf2ca9421, type: 3}
   cost: 0
+  purchasePrice: 0
   toolType: 4

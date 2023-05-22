@@ -48,6 +48,9 @@ public class InventoryManager : MonoBehaviour
     //The transform for the player to hold items in the scene
     public Transform handPoint;
 
+    //The transform for the player to hold items in the scene
+    public Transform handPointLeft;
+
     [SerializeField] 
     private GameObject triggerConfirm;
 
@@ -66,6 +69,7 @@ public class InventoryManager : MonoBehaviour
 
         UIManager.Instance.RenderInventory();
         RenderHand();
+        RenderHandEquipped();
     }
 
     //Equipping
@@ -118,6 +122,10 @@ public class InventoryManager : MonoBehaviour
         {
             RenderHand();
         }
+        else if(inventoryType == InventorySlot.InventoryType.Tool)
+        {
+            RenderHandEquipped();
+        }
 
         //Update the changes to the UI
         UIManager.Instance.RenderInventory();
@@ -160,6 +168,10 @@ public class InventoryManager : MonoBehaviour
         if (inventoryType == InventorySlot.InventoryType.Item)
         {
             RenderHand();
+        }
+        else if(inventoryType == InventorySlot.InventoryType.Tool)
+        {
+            RenderHandEquipped();
         }
         //Update the changes to the UI
         UIManager.Instance.RenderInventory();
@@ -215,13 +227,28 @@ public class InventoryManager : MonoBehaviour
     {
         if (handPoint.childCount > 0)
         {
-            Destroy(transform.GetChild(0).gameObject);
+            Destroy(handPoint.transform.GetChild(0).gameObject);
         }
 
         if (SlotEquipped(InventorySlot.InventoryType.Item))
         {
             //Instantiate the game model on the player's hand and put it on the scene 22.357f
             Instantiate(GetEquippedSlotItem(InventorySlot.InventoryType.Item).gameModel, new Vector3(transform.position.x, 1000.357f, transform.position.z), quaternion.identity);
+        }
+
+    }
+
+    public void RenderHandEquipped()
+    {
+        if (handPointLeft.childCount > 0)
+        {
+            Destroy(handPointLeft.transform.GetChild(0).gameObject);
+        }
+
+        if (SlotEquipped(InventorySlot.InventoryType.Tool))
+        {
+            //Instantiate the game model on the player's hand and put it on the scene 22.357f
+            Instantiate(GetEquippedSlotItem(InventorySlot.InventoryType.Tool).gameModel, handPointLeft);
         }
 
     }
@@ -330,6 +357,7 @@ public class InventoryManager : MonoBehaviour
         itemSlot.Remove();
         //Refresh inventory
         RenderHand();
+        RenderHandEquipped();
         UIManager.Instance.RenderInventory();
     }
 
@@ -412,7 +440,7 @@ public class InventoryManager : MonoBehaviour
                     joyStick.SetActive(true);
                     bag.SetActive(true);
                 }
-                if(equippedToolSlot != null) 
+                if(equippedToolSlot != null && equippedToolSlot.itemData == item) 
                 {
                     if((equippedToolSlot.quantity + itemSlotData.quantity) > 20)
                     {

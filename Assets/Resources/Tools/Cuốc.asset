@@ -15,6 +15,7 @@ MonoBehaviour:
   description: " \u0110\xE2y l\xE0 c\xE2y cu\u1ED1c, gi\xFAp b\u1EA1n \u0111\xE0o
     \u0111\u1EA5t"
   thumbnail: {fileID: -339877528, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
-  gameModel: {fileID: 0}
+  gameModel: {fileID: 2728306578926890382, guid: b8f1121ec74f1d7408f1b8478807b9db, type: 3}
   cost: 0
+  purchasePrice: 0
   toolType: 1

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -20,6 +21,14 @@ public class PlayerInteraction : MonoBehaviour
     InteractableObject selectedInteractable = null;
 
     public GameObject btnHarvestable;
+
+    [Header("Havert Image Display")]
+    public Image itemEquipSlot;
+
+    //Tool Quantity text on the status bar
+    public Text itemQuantityText;
+
+    public GameObject harvestBar;
 
     // Start is called before the first frame update
     void Start()
@@ -104,6 +113,11 @@ public class PlayerInteraction : MonoBehaviour
         if (selectLand != null)
         {
             selectLand.Interact();
+      /*      if(selectLand.landStatus == Land.LandStatus.Soil)
+            {
+
+            } */
+                
             return;
         }
     }
@@ -128,6 +142,25 @@ public class PlayerInteraction : MonoBehaviour
         {
             InventoryManager.Instance.HandToInventory(InventorySlot.InventoryType.Item);
             return;
+        }
+    }
+
+    IEnumerator DisableAfterDelay(float delay) {
+        yield return new WaitForSeconds(delay);
+        harvestBar.SetActive(false);
+    }
+
+    public void HarvestDisplay() 
+    {
+        itemQuantityText.text = "";
+        ItemData equippedItem = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Item);
+        if(equippedItem != null) 
+        {
+            itemEquipSlot.sprite = equippedItem.thumbnail;
+            int quantity = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item).quantity;
+            itemQuantityText.text = "+" + quantity.ToString();
+            harvestBar.SetActive(true);
+            StartCoroutine(DisableAfterDelay(5.0f));
         }
     }
 }

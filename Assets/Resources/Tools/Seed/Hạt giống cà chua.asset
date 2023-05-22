@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: " H\u1EA1t gi\u1ED1ng \u0111\u1EC3 tr\u1ED3ng c\xE0 chua"
   thumbnail: {fileID: -1608940185, guid: f35e251d415a5d54d9fbc4684f1dcbfa, type: 3}
-  gameModel: {fileID: 0}
+  gameModel: {fileID: 3923913272363152177, guid: f4b538d0a9444f74ca8897d61c9e81a6, type: 3}
   cost: 15000
   purchasePrice: 7500
-  hoursToGrow: 4
+  hoursToGrow: 72
   cropToYield: {fileID: 11400000, guid: 79c47a35f8e64b44f9794720d8a0f112, type: 2}
   seedling: {fileID: 3641896794726487424, guid: 7a8f69240d307264b885eaeddaf9cb0d, type: 3}
   regrowable: 0

@@ -6,14 +6,10 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    // static readonly string FILEPATH = Application.persistentDataPath + "/Save.json";
     static readonly string FILEPATH = Application.persistentDataPath + "/Save.save";
     static string filePath = Path.Combine(Application.persistentDataPath, "Save.save");
     public static void Save(GameSaveState save)
     {
-        // string json = JsonUtility.ToJson(save);
-        // File.WriteAllText(FILEPATH, json);
-
         //Save as Binary file
         using (FileStream file = File.Create(FILEPATH))
         {
@@ -24,12 +20,6 @@ public class SaveManager : MonoBehaviour
     public static GameSaveState Load()  
     {
         GameSaveState loadedSave = null;
-        //JSON
-        // if (File.Exists(FILEPATH))
-        // {
-        //     string json = File.ReadAllText(FILEPATH);
-        //     loadedSave = JsonUtility.FromJson<GameSaveState>(json);
-        // }
 
         //Binary method
         if (File.Exists(FILEPATH))
