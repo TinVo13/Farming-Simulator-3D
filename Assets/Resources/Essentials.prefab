@@ -25759,7 +25759,7 @@ MonoBehaviour:
   - itemData: {fileID: 11400000, guid: 1822a13aed70fcb488f6e44b804edddf, type: 2}
     quantity: 10
   - itemData: {fileID: 11400000, guid: 05a42b776391fe64eabb676929630790, type: 2}
-    quantity: 10
+    quantity: 30
   - itemData: {fileID: 11400000, guid: 2cad4d27c34f5cb4bb81dfec2b6577a6, type: 2}
     quantity: 1
   - itemData: {fileID: 11400000, guid: 76f04de87196bef408e2bf2bd253f874, type: 2}
