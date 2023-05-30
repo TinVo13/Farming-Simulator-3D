@@ -283,6 +283,7 @@ public class Land : MonoBehaviour, ITimeTracker
               cropObject.transform.position = new Vector3(transform.position.x, -0.11f, transform.position.z);
               //Access the CropBehaviour of the crop we're going to plant
               cropPlanted = cropObject.GetComponent<CropBehaviour>();*/
+            UIManager.Instance.SeedSack();
             SpawnCrop();
             //Plant it with the seed's inform
             cropPlanted.Plant(id, seedTool);
@@ -298,14 +299,14 @@ public class Land : MonoBehaviour, ITimeTracker
         GameObject rootPrefab = Resources.Load<GameObject>(pathToPrefab);
         GameObject male = rootPrefab.transform.Find("Player").gameObject;
 
-        if(male.activeSelf) 
-        {
-            UIManager.Instance.SeedSack();
-        }
-        else if(male.activeSelf == false)
-        {
-            UIManager.Instance.SeedSackFemale();
-        }
+        // if(male.activeSelf) 
+        // {
+           
+        // }
+        // else if(male.activeSelf == false)
+        // {
+        //     UIManager.Instance.SeedSackFemale();
+        // }
 
         //Instantiate the crop object parented to the land
         GameObject cropObject = Instantiate(cropPrefab, transform);

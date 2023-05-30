@@ -41,4 +41,9 @@ public class GameSaveState
         this.money = money;
         this.relationships = relationships;
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

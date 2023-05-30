@@ -28,4 +28,9 @@ public class NPCRelationshipState
     {
         return friendshipPoints / 250;
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

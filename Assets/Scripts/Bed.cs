@@ -7,6 +7,7 @@ public class Bed : MonoBehaviour
 {
     // [SerializeField]
     // private GameObject panel;
+
     private void OnTriggerEnter(Collider other)
     {
         string text = LocalizationSettings.StringDatabase.GetLocalizedString("LanguageTable", "sleepKey");

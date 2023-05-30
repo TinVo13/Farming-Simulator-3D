@@ -20,4 +20,9 @@ public class ItemSlotSaveData
         itemID = data.itemData.name;
         quantity = data.quantity;
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

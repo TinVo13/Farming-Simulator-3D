@@ -63,4 +63,9 @@ public struct CropSaveState
             cropState = CropBehaviour.CropState.Wilted;
         }
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

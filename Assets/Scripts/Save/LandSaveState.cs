@@ -34,4 +34,9 @@ public struct LandSaveState
         }
 
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

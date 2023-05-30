@@ -453,14 +453,14 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public void CheckOption()
     {
 
-        if(maleInspector.activeSelf)
-        {
+        // if(maleInspector.activeSelf)
+        // {
             inspectorMale.ItemInteract(); 
-        }
-        else 
-        {
-           inspectorFemale.ItemInteract();  
-        }
+        // }
+        // else 
+        // {
+        //    inspectorFemale.ItemInteract();  
+        // }
     }
 
 }

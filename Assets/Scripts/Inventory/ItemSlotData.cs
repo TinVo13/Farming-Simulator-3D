@@ -99,4 +99,9 @@ public class ItemSlotData
     {
         return Array.ConvertAll(array, new Converter<ItemSlotSaveData, ItemSlotData>(DeserializeData));
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

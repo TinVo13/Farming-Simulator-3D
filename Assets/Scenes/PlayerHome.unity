@@ -6389,7 +6389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5968877238806378310, guid: d72e6d8c288ed904782aa9547f4a2573, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7771101494981374214, guid: d72e6d8c288ed904782aa9547f4a2573, type: 3}
       propertyPath: m_RootOrder
@@ -6440,6 +6440,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72e6d8c288ed904782aa9547f4a2573, type: 3}
+--- !u!1 &1302986262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4786961615732982003, guid: d72e6d8c288ed904782aa9547f4a2573, type: 3}
+  m_PrefabInstance: {fileID: 1302986261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335203628
 GameObject:
   m_ObjectHideFlags: 0
@@ -7104,6 +7109,10 @@ PrefabInstance:
       propertyPath: panel
       value: 
       objectReference: {fileID: 432958199}
+    - target: {fileID: 3103197733133892182, guid: d97d0ae44b298cd4cb99bfdcf83c2ebd, type: 3}
+      propertyPath: sleppBar
+      value: 
+      objectReference: {fileID: 1302986262}
     - target: {fileID: 3103868131393590852, guid: d97d0ae44b298cd4cb99bfdcf83c2ebd, type: 3}
       propertyPath: m_Name
       value: Bed

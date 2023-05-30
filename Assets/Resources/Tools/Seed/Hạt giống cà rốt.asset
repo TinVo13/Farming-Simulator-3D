@@ -18,7 +18,7 @@ MonoBehaviour:
   gameModel: {fileID: 3923913272363152177, guid: f4b538d0a9444f74ca8897d61c9e81a6, type: 3}
   cost: 40000
   purchasePrice: 10000
-  hoursToGrow: 48
+  hoursToGrow: 96
   cropToYield: {fileID: 11400000, guid: 772884962d2e60c469ac2d14f61e306b, type: 2}
   seedling: {fileID: 3641896794726487424, guid: 7a8f69240d307264b885eaeddaf9cb0d, type: 3}
   regrowable: 0

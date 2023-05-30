@@ -155,4 +155,9 @@ public class GameTimestamp
         int difference = timestamp2Hours - timestamp1Hours; 
         return Mathf.Abs(difference);    
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

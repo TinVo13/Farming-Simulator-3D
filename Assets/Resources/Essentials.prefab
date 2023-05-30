@@ -6937,6 +6937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ddc363754ada14d9653f420f783529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sleppBar: {fileID: 4786961615732982003}
 --- !u!1 &1667921067128721434
 GameObject:
   m_ObjectHideFlags: 0
@@ -25506,6 +25507,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1994247045235196214}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: HarvestDisplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1994247045235196214}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: HiddenHarvestBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -14,4 +14,9 @@ public class ItemData : ScriptableObject
     public int cost;
 
     public int purchasePrice;
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

@@ -145,22 +145,27 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    IEnumerator DisableAfterDelay(float delay) {
-        yield return new WaitForSeconds(delay);
-        harvestBar.SetActive(false);
-    }
-
     public void HarvestDisplay() 
     {
         itemQuantityText.text = "";
         ItemData equippedItem = InventoryManager.Instance.GetEquippedSlotItem(InventorySlot.InventoryType.Item);
-        if(equippedItem != null) 
+        if(equippedItem != null)
         {
             itemEquipSlot.sprite = equippedItem.thumbnail;
             int quantity = InventoryManager.Instance.GetEquippedSlot(InventorySlot.InventoryType.Item).quantity;
             itemQuantityText.text = "+" + quantity.ToString();
             harvestBar.SetActive(true);
-            StartCoroutine(DisableAfterDelay(5.0f));
         }
+    }
+
+    public void HiddenHarvestBar()
+    {
+        StartCoroutine(DisableAfterDelay(3.0f));
+    }
+
+    IEnumerator DisableAfterDelay(float delay) 
+    {
+        yield return new WaitForSeconds(delay);
+        harvestBar.SetActive(false);
     }
 }
